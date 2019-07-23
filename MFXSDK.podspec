@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "MobFoxSDK"
+  s.name             = "MFXSDK"
   s.version          = "4.0.0"
   s.summary          = "MobFox's iOS SDK"
 
@@ -27,12 +27,12 @@ puts wd
 
   s.description      = "MobFox's iOS SDK Used To Get Ads From The MobFox SSP"
 
-  s.homepage         = "http://mobfox.com"
+  s.homepage         = "https://www.mobfox.com/"
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "MobFox" => "ofir.ka@mobfox.com"  }
 
-  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK', :tag => "#{s.version}" }
+  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "#{s.version}" }
   #s.source           = { :git => 'https://github.com/mobfox/MobFox-iOS-SDK.git', :commit => 'master' }
 
   #s.source           = { :git => 'https://github.com/mobfox/MobFox-iOS-SDK.git', :commit => 'dev' }
@@ -49,7 +49,7 @@ puts wd
   s.static_framework = true
   s.requires_arc = true
 
-  s.source_files = 'MFXSDKCore.embeddedframework/MobFoxSDKCore.framework/Headers/*.h'
+  s.source_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
   s.ios.libraries = 'z'
 
 
