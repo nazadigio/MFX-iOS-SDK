@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7w-c7-0lJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qv-OG-DkH">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="40"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="I6A-KP-e0q"/>
+                                            <constraint firstAttribute="width" constant="124" id="YsX-Y1-Uvn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Banner 320x50">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBannerSmallPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Zq-YW-HPU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M9-qv-dYE">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="40"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Banner 300x250">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBannerLargePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nFV-yi-bqT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tma-Mr-k3h">
+                                        <rect key="frame" x="292" y="607" width="83" height="40"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Native">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnNativePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sjU-cT-w1K"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajG-4k-Qtm">
+                                        <rect key="frame" x="146" y="607" width="145" height="40"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Interstitial(video)">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnRewardedPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aag-VE-1Qj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tw9-vH-vpB">
+                                        <rect key="frame" x="0.0" y="607" width="145" height="40"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Njo-Do-e5h"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Interstitial(html)">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnInterstitialPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ca1-DE-1eK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p19-oG-By1">
+                                        <rect key="frame" x="251" y="0.0" width="124" height="40"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Video Banner">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnVideoBannerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IBC-7y-axS"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHQ-KJ-aEw">
+                                        <rect key="frame" x="10" y="357" width="357" height="225"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mEQ-ne-gh2">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j7S-Fb-ewj">
+                                                <rect key="frame" x="64" y="75" width="293" height="115"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaV-Ut-XEH">
+                                                <rect key="frame" x="0.0" y="61" width="58" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPj-bd-6Eh">
+                                                <rect key="frame" x="64" y="0.0" width="293" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrZ-tH-qcf">
+                                                <rect key="frame" x="64" y="23" width="293" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bey-rF-QQB">
+                                                <rect key="frame" x="0.0" y="204" width="167" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szr-HJ-QRZ">
+                                                <rect key="frame" x="183" y="198" width="174" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnCTAPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ibo-Is-mxC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="p19-oG-By1" firstAttribute="trailing" secondItem="Tma-Mr-k3h" secondAttribute="trailing" id="2Nd-rZ-4hf"/>
+                                    <constraint firstItem="6qv-OG-DkH" firstAttribute="baseline" secondItem="8M9-qv-dYE" secondAttribute="firstBaseline" id="42W-al-Cyy"/>
+                                    <constraint firstItem="6qv-OG-DkH" firstAttribute="top" secondItem="g7w-c7-0lJ" secondAttribute="top" id="4nV-E9-oI5"/>
+                                    <constraint firstItem="6qv-OG-DkH" firstAttribute="trailing" secondItem="tw9-vH-vpB" secondAttribute="trailing" id="7Ap-cG-RFX"/>
+                                    <constraint firstItem="tw9-vH-vpB" firstAttribute="top" secondItem="ajG-4k-Qtm" secondAttribute="top" id="7w1-sJ-jaa"/>
+                                    <constraint firstItem="6qv-OG-DkH" firstAttribute="top" secondItem="8M9-qv-dYE" secondAttribute="top" id="Awt-Fe-dup"/>
+                                    <constraint firstItem="8M9-qv-dYE" firstAttribute="leading" secondItem="6qv-OG-DkH" secondAttribute="trailing" constant="1" id="DaQ-Fg-W5F"/>
+                                    <constraint firstItem="ajG-4k-Qtm" firstAttribute="baseline" secondItem="Tma-Mr-k3h" secondAttribute="firstBaseline" id="GI1-eh-hGA"/>
+                                    <constraint firstItem="p19-oG-By1" firstAttribute="leading" secondItem="8M9-qv-dYE" secondAttribute="trailing" constant="1" id="Jgd-Xb-7id"/>
+                                    <constraint firstItem="6qv-OG-DkH" firstAttribute="leading" secondItem="tw9-vH-vpB" secondAttribute="leading" id="LhS-32-t5s"/>
+                                    <constraint firstItem="p19-oG-By1" firstAttribute="leading" secondItem="Tma-Mr-k3h" secondAttribute="leading" id="R49-jA-QZZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="p19-oG-By1" secondAttribute="trailing" id="XP1-Hk-dSY"/>
+                                    <constraint firstAttribute="bottom" secondItem="tw9-vH-vpB" secondAttribute="bottom" id="XQw-af-JjF"/>
+                                    <constraint firstItem="8M9-qv-dYE" firstAttribute="centerX" secondItem="g7w-c7-0lJ" secondAttribute="centerX" id="ZZ7-US-43g"/>
+                                    <constraint firstItem="tw9-vH-vpB" firstAttribute="baseline" secondItem="ajG-4k-Qtm" secondAttribute="firstBaseline" id="din-Qi-SSr"/>
+                                    <constraint firstItem="ajG-4k-Qtm" firstAttribute="top" secondItem="Tma-Mr-k3h" secondAttribute="top" id="gTg-mq-egS"/>
+                                    <constraint firstItem="8M9-qv-dYE" firstAttribute="baseline" secondItem="p19-oG-By1" secondAttribute="firstBaseline" id="mfo-RG-reM"/>
+                                    <constraint firstItem="8M9-qv-dYE" firstAttribute="trailing" secondItem="ajG-4k-Qtm" secondAttribute="trailing" id="vng-Dd-Myr"/>
+                                    <constraint firstItem="6qv-OG-DkH" firstAttribute="leading" secondItem="g7w-c7-0lJ" secondAttribute="leading" id="x7f-pI-zgh"/>
+                                    <constraint firstItem="8M9-qv-dYE" firstAttribute="leading" secondItem="ajG-4k-Qtm" secondAttribute="leading" id="xbj-Vf-YcB"/>
+                                    <constraint firstItem="8M9-qv-dYE" firstAttribute="top" secondItem="p19-oG-By1" secondAttribute="top" id="xoW-Pj-gam"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="24g-yO-onm"/>
+                            <constraint firstAttribute="trailing" secondItem="g7w-c7-0lJ" secondAttribute="trailing" id="7NE-CA-h5B"/>
+                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GfL-bh-gZ4"/>
+                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="KVE-aq-asO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="btnBannerLarge" destination="8M9-qv-dYE" id="hdA-2o-oZR"/>
+                        <outlet property="btnBannerSmall" destination="6qv-OG-DkH" id="baB-JI-jkT"/>
+                        <outlet property="btnBannerVideo" destination="p19-oG-By1" id="HW1-VH-Mh0"/>
+                        <outlet property="btnCTA" destination="szr-HJ-QRZ" id="lVz-Cy-BtQ"/>
+                        <outlet property="btnInterstitial" destination="tw9-vH-vpB" id="9BD-wP-Ocs"/>
+                        <outlet property="btnNative" destination="Tma-Mr-k3h" id="Yd0-EG-JcN"/>
+                        <outlet property="btnRewarded" destination="ajG-4k-Qtm" id="2cL-Dz-4zS"/>
+                        <outlet property="imgIcon" destination="mEQ-ne-gh2" id="ObR-Jd-Yvu"/>
+                        <outlet property="imgMain" destination="j7S-Fb-ewj" id="cPp-VX-007"/>
+                        <outlet property="lblDesc" destination="UrZ-tH-qcf" id="sjE-vO-VJ1"/>
+                        <outlet property="lblRating" destination="SaV-Ut-XEH" id="e3D-Cb-7kU"/>
+                        <outlet property="lblSponsored" destination="Bey-rF-QQB" id="oD6-eZ-azO"/>
+                        <outlet property="lblTitle" destination="BPj-bd-6Eh" id="IKw-u7-kAq"/>
+                        <outlet property="viewAll" destination="g7w-c7-0lJ" id="60y-tI-6Wc"/>
+                        <outlet property="viewNative" destination="XHQ-KJ-aEw" id="EVt-Wn-Gaa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
