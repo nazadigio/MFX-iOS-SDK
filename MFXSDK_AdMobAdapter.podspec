@@ -44,7 +44,7 @@ puts wd
   s.ios.source_files = 'Adapters/AdMob/**/*.{h,m}'
 
 
-  s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
+  # s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
 
   s.dependency 'Google-Mobile-Ads-SDK', '= 7.40.0'
   #s.dependency 'mopub-ios-sdk', '5.0'
