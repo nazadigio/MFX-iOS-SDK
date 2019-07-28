@@ -30,7 +30,7 @@ puts wd
   s.homepage         = "https://www.mobfox.com/"
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { "MobFox" => "shimon.s@mobfox.com"  }
+  s.author           = { "MobFox" => "ofir.ka@mobfox.com"  }
 
   s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "#{s.version}" }
   #s.source           = { :git => 'https://github.com/mobfox/MobFox-iOS-SDK.git', :commit => 'master' }
@@ -59,7 +59,7 @@ puts wd
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
   # }
 
-  s.frameworks = 'MobFoxSDKCore', 'AdSupport'
+  s.frameworks = 'MFXSDKCore', 'AdSupport'
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
 
