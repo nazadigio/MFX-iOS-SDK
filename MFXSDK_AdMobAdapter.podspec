@@ -49,24 +49,25 @@ puts wd
   s.static_framework = true
   s.requires_arc = true
 
-  s.source_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
+  s.source_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h','MATMoatMobileAppKit.framework/Headers/*.h'
   s.ios.libraries = 'z'
 
-
   s.ios.source_files = 'Adapters/AdMob/**/*.{h,m}'
+  # s.source_files = 'Adapters/AdMob/**/*.{h,m}'
+
 
   # s.resource_bundles = {
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
   # }
 
-  s.frameworks = 'MFXSDKCore', 'AdSupport'
+  s.frameworks = 'MFXSDKCore', 'MATMoatMobileAppKit', 'AdSupport'
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
 
 
-   s.public_header_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
-   s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
-   s.preserve_paths = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
+   s.public_header_files = 'MATMoatMobileAppKit.framework/Headers/*.h','MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
+   s.vendored_frameworks = 'MATMoatMobileAppKit.framework','MFXSDKCore.embeddedframework/MFXSDKCore.framework'
+   s.preserve_paths = 'MATMoatMobileAppKit.framework','MFXSDKCore.embeddedframework/MFXSDKCore.framework'
   # s.ios.frameworks = 'CoreData', 'SystemConfiguration'
 
 
