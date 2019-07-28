@@ -30,7 +30,7 @@ puts wd
   s.homepage         = "https://www.mobfox.com/"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "MobFox" => "ofir.ka@mobfox.com"  }
-  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "#{s.version}" }
+  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "admob.4.0.0" }
 
   puts   s.source
 
