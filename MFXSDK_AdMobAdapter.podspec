@@ -40,7 +40,8 @@ puts wd
 
   s.ios.libraries = 'z'
 
-  s.ios.source_files = 'Adapters/AdMob/**/*.{h,m}'
+  s.source_files = 'Adapters/AdMob/*.{h,m}'
+  # s.ios.source_files = 'Adapters/AdMob/**/*.{h,m}'
 
 
   s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
