@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "MFXSDK_AdMobAdapter"
+  s.name             = "MFXSDK_AdMob"
   s.version          = "4.0.0"
   s.summary          = "MobFox's iOS AdMob Adapter"
 
@@ -28,9 +28,10 @@ puts wd
   s.description      = "MobFox's iOS SDK Used To Get Ads From The MobFox SSP"
 
   s.homepage         = "https://www.mobfox.com/"
+  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "MobFox" => "ofir.ka@mobfox.com"  }
-  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "admob.4.0.0" }
+  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "admob.4.0.1" }
 
   puts   s.source
 
@@ -38,13 +39,27 @@ puts wd
   s.static_framework = true
   s.requires_arc = true
 
+  s.source_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
   s.ios.libraries = 'z'
 
   s.source_files = 'Adapters/AdMob/**/*.{h,m}'
   s.ios.source_files = 'Adapters/AdMob/**/*.{h,m}'
 
 
+
+  # s.resource_bundles = {
+  #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
+  # }
+
+  s.frameworks = 'MFXSDKCore' ,'AdSupport'
+
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
+
+
+   s.public_header_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
   s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
+   s.preserve_paths = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
+  # s.ios.frameworks = 'CoreData', 'SystemConfiguration'
 
   s.dependency 'Google-Mobile-Ads-SDK', '= 7.40.0'
   #s.dependency 'mopub-ios-sdk', '5.0'
