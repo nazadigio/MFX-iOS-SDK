@@ -11,11 +11,8 @@
 
 
 #import "MFXBannerAd.h"
-#import "MFXBannerInner.h"
 #import "MFXInterstitialAd.h"
-#import "MFXInterstitialInner.h"
 #import "MFXNativeAd.h"
-#import "MFXNativeInner.h"
 #import "MFXWebView.h"
 #import "MFXScriptHandler.h"
 #import "MobFoxSDK.h"
