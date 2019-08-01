@@ -42,7 +42,7 @@ puts wd
   s.source_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
   s.ios.libraries = 'z'
 
-  s.source_files = 'Adapters/AdMob/**/*.{h,m}'
+  # s.source_files = 'Adapters/AdMob/**/*.{h,m}'
   s.ios.source_files = 'Adapters/AdMob/**/*.{h,m}'
 
 
@@ -56,7 +56,7 @@ puts wd
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
 
 
-   s.public_header_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
+   s.public_header_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h', 'Adapters/AdMob/*.h'
   s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
    s.preserve_paths = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
   # s.ios.frameworks = 'CoreData', 'SystemConfiguration'
