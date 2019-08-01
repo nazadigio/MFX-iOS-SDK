@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)interstitialAdLoaded:(MFXInterstitialAd *)interstitial;
 - (void)interstitialAdLoadFailed:(MFXInterstitialAd *_Nullable)interstitial withError:(NSString*)error;
 - (void)interstitialAdShown:(MFXInterstitialAd *)interstitial;
-- (void)interstitialAdClicked:(MFXInterstitialAd *)interstitia withUrl:(NSString*)url;
+- (void)interstitialAdClicked:(MFXInterstitialAd *)interstitial withUrl:(NSString*)url;
 - (void)interstitialAdFinished:(MFXInterstitialAd *)interstitial;
 - (void)interstitialAdClosed:(MFXInterstitialAd *)interstitial;
 

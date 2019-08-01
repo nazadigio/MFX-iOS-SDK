@@ -10,15 +10,11 @@
 #define MFXSDKCore_Bridging_Header_h
 
 
+#import "MobFoxSDK.h"
+#import "MFXSDKCore.h"
 #import "MFXBannerAd.h"
 #import "MFXInterstitialAd.h"
 #import "MFXNativeAd.h"
-#import "MFXWebView.h"
-#import "MFXScriptHandler.h"
-#import "MobFoxSDK.h"
-#import "MFXSMXMLDocument.h"
-#import "MFXSDKCore.h"
-
 
 
 #endif /* MFXSDKCore_Bridging_Header_h */
