@@ -18,7 +18,7 @@
 #pragma mark GADMAdNetworkAdapter Delegate
 
 + (NSString *)adapterVersion {
-    return @"4.0.0";
+    return @"4.0.1";
 }
 
 + (Class<GADAdNetworkExtras>)networkExtrasClass {
