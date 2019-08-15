@@ -15,8 +15,6 @@
 		B72795B72270815300FA24C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795B62270815300FA24C2 /* main.m */; };
 		B72795C12270815400FA24C2 /* MFXTesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795C02270815300FA24C2 /* MFXTesterTests.m */; };
 		B72795CC2270815400FA24C2 /* MFXTesterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795CB2270815400FA24C2 /* MFXTesterUITests.m */; };
-		B75F0E6D22F3090300760883 /* MFXSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B75F0E6A22F308AF00760883 /* MFXSDKCore.framework */; };
-		B75F0E6E22F3090300760883 /* MFXSDKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B75F0E6A22F308AF00760883 /* MFXSDKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B75F9A6622D5D43000FB822F /* GADMAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4A22D5D43000FB822F /* GADMAdapterMobFox.m */; };
 		B75F9A6722D5D43000FB822F /* GADMAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4A22D5D43000FB822F /* GADMAdapterMobFox.m */; };
 		B75F9A6922D5D43000FB822F /* GADMNativeAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4C22D5D43000FB822F /* GADMNativeAdapterMobFox.m */; };
@@ -31,6 +29,8 @@
 		B75F9A8B22D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A6422D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m */; };
 		B7A1629022B63DC100B6ECC8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */; };
 		B7A1629222B63DC900B6ECC8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1629122B63DC900B6ECC8 /* libz.tbd */; };
+		B7AC739B23054E6200C902F6 /* MFXSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC739A23054E6200C902F6 /* MFXSDKCore.framework */; };
+		B7AC739C23054E6200C902F6 /* MFXSDKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC739A23054E6200C902F6 /* MFXSDKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,17 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B75F0E6F22F3090300760883 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B75F0E6E22F3090300760883 /* MFXSDKCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B7A1629522B656E600B6ECC8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,6 +58,17 @@
 			dstSubfolderSpec = 7;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AC739923054D8F00C902F6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B7AC739C23054E6200C902F6 /* MFXSDKCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -90,7 +90,6 @@
 		B72795C72270815400FA24C2 /* MFXTesterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFXTesterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72795CB2270815400FA24C2 /* MFXTesterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFXTesterUITests.m; sourceTree = "<group>"; };
 		B72795CD2270815400FA24C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B75F0E6A22F308AF00760883 /* MFXSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MFXSDKCore.framework; sourceTree = "<group>"; };
 		B75F9A4A22D5D43000FB822F /* GADMAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMAdapterMobFox.m; sourceTree = "<group>"; };
 		B75F9A4B22D5D43000FB822F /* MFMediatedNativeContentAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFMediatedNativeContentAd.h; sourceTree = "<group>"; };
 		B75F9A4C22D5D43000FB822F /* GADMNativeAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMNativeAdapterMobFox.m; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		B75F9A9622D616B600FB822F /* MobFoxMoPubNativeCustomEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubNativeCustomEvent.m; sourceTree = "<group>"; };
 		B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B7A1629122B63DC900B6ECC8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B7AC739A23054E6200C902F6 /* MFXSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MFXSDKCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 			files = (
 				B7A1629222B63DC900B6ECC8 /* libz.tbd in Frameworks */,
 				B7A1629022B63DC100B6ECC8 /* AdSupport.framework in Frameworks */,
-				B75F0E6D22F3090300760883 /* MFXSDKCore.framework in Frameworks */,
+				B7AC739B23054E6200C902F6 /* MFXSDKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +146,7 @@
 		B727959B2270815200FA24C2 = {
 			isa = PBXGroup;
 			children = (
+				B7AC739A23054E6200C902F6 /* MFXSDKCore.framework */,
 				B72795A62270815200FA24C2 /* MFXTester */,
 				B72795BF2270815300FA24C2 /* MFXTesterTests */,
 				B72795CA2270815400FA24C2 /* MFXTesterUITests */,
@@ -203,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				B7A1629122B63DC900B6ECC8 /* libz.tbd */,
-				B75F0E6A22F308AF00760883 /* MFXSDKCore.framework */,
 				B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */,
 			);
 			name = Frameworks;
@@ -263,7 +263,7 @@
 				B72795A12270815200FA24C2 /* Frameworks */,
 				B72795A22270815200FA24C2 /* Resources */,
 				B7A1629522B656E600B6ECC8 /* CopyFiles */,
-				B75F0E6F22F3090300760883 /* Embed Frameworks */,
+				B7AC739923054D8F00C902F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

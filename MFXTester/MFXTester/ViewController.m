@@ -84,12 +84,14 @@ CGPoint bannerCenterPoint;
 
 - (IBAction)btnBannerSmallPressed:(id)sender
 {
+    
+    NSLog(@"okok - version : %@", [MobFoxSDK sdkVersion]);
     [self clearAllAds];
 
 
     _mBannerAd = [MobFoxSDK createBanner:HASH_BANNER_HTML
-                                                    width:320
-                                                   height:50
+                                                    width:10
+                                                   height:10
                                              withDelegate:self];
     if (_mBannerAd!=nil)
     {

@@ -40,6 +40,8 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Atomic;
 FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Outside;
 FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 
+
+
 ///////////////////////////
 /*          SDK          */
 ///////////////////////////
