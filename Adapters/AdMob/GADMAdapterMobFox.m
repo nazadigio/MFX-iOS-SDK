@@ -195,7 +195,7 @@
         }
         if (extras.demo_age!=nil)
         {
-            [MobFoxSDK setDemoGender:extras.demo_age];
+            [MobFoxSDK setDemoAge:extras.demo_age];
         }
     }
 }
