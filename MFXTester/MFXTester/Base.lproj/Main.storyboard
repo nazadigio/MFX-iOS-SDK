@@ -156,6 +156,17 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5b-8r-g12">
+                                        <rect key="frame" x="0.0" y="563" width="74" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.87384125229999998" blue="0.82850196239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Adapters">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="1m2-FR-m55" kind="show" identifier="mainToAdapters" id="reV-1n-Bbc"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -185,12 +196,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="24g-yO-onm"/>
-                            <constraint firstAttribute="trailing" secondItem="g7w-c7-0lJ" secondAttribute="trailing" id="7NE-CA-h5B"/>
-                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GfL-bh-gZ4"/>
-                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="KVE-aq-asO"/>
+                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="top" secondItem="5WF-l8-0DI" secondAttribute="top" id="24g-yO-onm"/>
+                            <constraint firstItem="5WF-l8-0DI" firstAttribute="trailing" secondItem="g7w-c7-0lJ" secondAttribute="trailing" id="7NE-CA-h5B"/>
+                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="leading" secondItem="5WF-l8-0DI" secondAttribute="leading" id="GfL-bh-gZ4"/>
+                            <constraint firstItem="g7w-c7-0lJ" firstAttribute="bottom" secondItem="5WF-l8-0DI" secondAttribute="bottom" id="KVE-aq-asO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="5WF-l8-0DI"/>
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -214,6 +225,193 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--Adapters View Controller-->
+        <scene sceneID="EA2-0X-pGM">
+            <objects>
+                <viewController id="1m2-FR-m55" customClass="AdaptersViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vbn-Ab-5nh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLg-bo-3gS">
+                                <rect key="frame" x="125" y="20" width="124" height="40"/>
+                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="MoPub Interstitial">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="moPubInterstitial:" destination="1m2-FR-m55" eventType="touchUpInside" id="tNL-zm-yyA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqB-25-kMy">
+                                <rect key="frame" x="250" y="20" width="124" height="40"/>
+                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="0sS-gr-saZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="MoPub Native Ad">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="moPubNativeAd:" destination="1m2-FR-m55" eventType="touchUpInside" id="VIV-8T-qjv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqX-1t-b76">
+                                <rect key="frame" x="0.0" y="20" width="124" height="40"/>
+                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="guS-pJ-CsD"/>
+                                    <constraint firstAttribute="height" constant="40" id="kFS-Px-Bct"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="MoPub Banner">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="moPubBanner:" destination="1m2-FR-m55" eventType="touchUpInside" id="NDk-QJ-BYt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7W-th-5tl">
+                                <rect key="frame" x="125" y="627" width="124" height="40"/>
+                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="AdMob Interstitial">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="adMobInterstitial:" destination="1m2-FR-m55" eventType="touchUpInside" id="zaA-9c-ypY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqP-lM-hFP">
+                                <rect key="frame" x="250" y="627" width="124" height="40"/>
+                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="AdMob Native Ad">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="adMobNativeAd:" destination="1m2-FR-m55" eventType="touchUpInside" id="Z36-2G-qvQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJW-PQ-0kX">
+                                <rect key="frame" x="0.0" y="627" width="124" height="40"/>
+                                <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="hOP-Sy-lMn"/>
+                                    <constraint firstAttribute="height" constant="40" id="utr-IP-YIw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="AdMob Banner">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="adMobBanner:" destination="1m2-FR-m55" eventType="touchUpInside" id="obr-n4-CSr"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ij1-R9-a4Y">
+                                <rect key="frame" x="16" y="381" width="357" height="225"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-H3-206">
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2V-yP-QiM">
+                                        <rect key="frame" x="64" y="75" width="293" height="115"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zok-Sa-36u">
+                                        <rect key="frame" x="0.0" y="61" width="58" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAN-tf-Ada">
+                                        <rect key="frame" x="64" y="0.0" width="293" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U66-ew-gn5">
+                                        <rect key="frame" x="64" y="23" width="293" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wd0-yf-Q2X">
+                                        <rect key="frame" x="0.0" y="204" width="167" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gt-XW-5xr">
+                                        <rect key="frame" x="183" y="198" width="174" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnCTAPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cJX-4p-Xg1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="J7W-th-5tl" firstAttribute="centerX" secondItem="MLg-bo-3gS" secondAttribute="centerX" id="0wF-PS-cDk"/>
+                            <constraint firstItem="J7W-th-5tl" firstAttribute="baseline" secondItem="rqP-lM-hFP" secondAttribute="firstBaseline" id="1dB-OD-mIv"/>
+                            <constraint firstItem="rqP-lM-hFP" firstAttribute="leading" secondItem="J7W-th-5tl" secondAttribute="trailing" constant="1" id="7XR-pc-df0"/>
+                            <constraint firstItem="J7W-th-5tl" firstAttribute="bottom" secondItem="mva-qs-sUq" secondAttribute="bottom" id="GHJ-hD-OfQ"/>
+                            <constraint firstItem="mva-qs-sUq" firstAttribute="trailing" secondItem="kqB-25-kMy" secondAttribute="trailing" constant="1" id="MkA-dh-cFM"/>
+                            <constraint firstItem="DJW-PQ-0kX" firstAttribute="baseline" secondItem="J7W-th-5tl" secondAttribute="firstBaseline" id="RAq-KY-EhN"/>
+                            <constraint firstItem="XqX-1t-b76" firstAttribute="leading" secondItem="mva-qs-sUq" secondAttribute="leading" id="RSc-xf-PBh"/>
+                            <constraint firstItem="MLg-bo-3gS" firstAttribute="top" secondItem="kqB-25-kMy" secondAttribute="top" id="RjT-GZ-jBL"/>
+                            <constraint firstItem="XqX-1t-b76" firstAttribute="top" secondItem="MLg-bo-3gS" secondAttribute="top" id="XDp-or-40b"/>
+                            <constraint firstItem="XqX-1t-b76" firstAttribute="top" secondItem="mva-qs-sUq" secondAttribute="top" id="f2f-7a-TEq"/>
+                            <constraint firstItem="rqP-lM-hFP" firstAttribute="trailing" secondItem="kqB-25-kMy" secondAttribute="trailing" id="feM-hF-mLL"/>
+                            <constraint firstItem="kqB-25-kMy" firstAttribute="leading" secondItem="MLg-bo-3gS" secondAttribute="trailing" constant="1" id="iCE-Tz-Tm9"/>
+                            <constraint firstItem="MLg-bo-3gS" firstAttribute="leading" secondItem="XqX-1t-b76" secondAttribute="trailing" constant="1" id="mij-Sz-a7A"/>
+                            <constraint firstItem="rqP-lM-hFP" firstAttribute="leading" secondItem="kqB-25-kMy" secondAttribute="leading" id="qim-PA-Tin"/>
+                            <constraint firstItem="DJW-PQ-0kX" firstAttribute="top" secondItem="J7W-th-5tl" secondAttribute="top" id="uTR-WX-HnI"/>
+                            <constraint firstItem="MLg-bo-3gS" firstAttribute="baseline" secondItem="kqB-25-kMy" secondAttribute="firstBaseline" id="vGF-c6-6Ra"/>
+                            <constraint firstItem="J7W-th-5tl" firstAttribute="top" secondItem="rqP-lM-hFP" secondAttribute="top" id="vLa-6f-vvF"/>
+                            <constraint firstItem="XqX-1t-b76" firstAttribute="baseline" secondItem="MLg-bo-3gS" secondAttribute="firstBaseline" id="xzd-0l-sBY"/>
+                            <constraint firstItem="J7W-th-5tl" firstAttribute="leading" secondItem="DJW-PQ-0kX" secondAttribute="trailing" constant="1" id="zfA-aR-yry"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mva-qs-sUq"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="btnCTA" destination="9gt-XW-5xr" id="96O-eu-EW5"/>
+                        <outlet property="imgIcon" destination="RjU-H3-206" id="GZj-if-ehv"/>
+                        <outlet property="imgMain" destination="h2V-yP-QiM" id="Z6r-Qp-AKd"/>
+                        <outlet property="lblDesc" destination="U66-ew-gn5" id="Wzh-ZC-Ftu"/>
+                        <outlet property="lblRating" destination="zok-Sa-36u" id="85z-aR-N9h"/>
+                        <outlet property="lblSponsored" destination="Wd0-yf-Q2X" id="Eyc-qt-Dfv"/>
+                        <outlet property="lblTitle" destination="eAN-tf-Ada" id="43G-rf-sMM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRj-Ts-Gtl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032.8" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

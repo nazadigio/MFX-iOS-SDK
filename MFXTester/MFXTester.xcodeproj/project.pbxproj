@@ -15,22 +15,29 @@
 		B72795B72270815300FA24C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795B62270815300FA24C2 /* main.m */; };
 		B72795C12270815400FA24C2 /* MFXTesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795C02270815300FA24C2 /* MFXTesterTests.m */; };
 		B72795CC2270815400FA24C2 /* MFXTesterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795CB2270815400FA24C2 /* MFXTesterUITests.m */; };
-		B75F9A6622D5D43000FB822F /* GADMAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4A22D5D43000FB822F /* GADMAdapterMobFox.m */; };
-		B75F9A6722D5D43000FB822F /* GADMAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4A22D5D43000FB822F /* GADMAdapterMobFox.m */; };
-		B75F9A6922D5D43000FB822F /* GADMNativeAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4C22D5D43000FB822F /* GADMNativeAdapterMobFox.m */; };
-		B75F9A6A22D5D43000FB822F /* GADMNativeAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4C22D5D43000FB822F /* GADMNativeAdapterMobFox.m */; };
-		B75F9A6C22D5D43000FB822F /* MFMediatedNativeContentAd.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4D22D5D43000FB822F /* MFMediatedNativeContentAd.m */; };
-		B75F9A6D22D5D43000FB822F /* MFMediatedNativeContentAd.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A4D22D5D43000FB822F /* MFMediatedNativeContentAd.m */; };
-		B75F9A7E22D5D43000FB822F /* MobFoxAdapterConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A5B22D5D43000FB822F /* MobFoxAdapterConfiguration.m */; };
-		B75F9A7F22D5D43000FB822F /* MobFoxAdapterConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A5B22D5D43000FB822F /* MobFoxAdapterConfiguration.m */; };
-		B75F9A8122D5D43000FB822F /* MoPubAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A5E22D5D43000FB822F /* MoPubAdapterMobFox.m */; };
-		B75F9A8222D5D43000FB822F /* MoPubAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A5E22D5D43000FB822F /* MoPubAdapterMobFox.m */; };
-		B75F9A8A22D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A6422D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m */; };
-		B75F9A8B22D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B75F9A6422D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m */; };
 		B7A1629022B63DC100B6ECC8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */; };
 		B7A1629222B63DC900B6ECC8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1629122B63DC900B6ECC8 /* libz.tbd */; };
 		B7AC73A52305734300C902F6 /* MFXSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC73A42305734200C902F6 /* MFXSDKCore.framework */; };
 		B7AC73A62305734300C902F6 /* MFXSDKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC73A42305734200C902F6 /* MFXSDKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7D7C7962312B48C003A7221 /* AdaptersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C7952312B48C003A7221 /* AdaptersViewController.m */; };
+		B7D7C7982312B83C003A7221 /* MoPubSDKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */; };
+		B7D7C7992312B83C003A7221 /* MoPubSDKFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7D7C79E2312B846003A7221 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C79A2312B846003A7221 /* GoogleUtilities.framework */; };
+		B7D7C79F2312B846003A7221 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C79B2312B846003A7221 /* GoogleAppMeasurement.framework */; };
+		B7D7C7A02312B846003A7221 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C79C2312B846003A7221 /* nanopb.framework */; };
+		B7D7C7A12312B846003A7221 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C79D2312B846003A7221 /* GoogleMobileAds.framework */; };
+		B7D7C81C2312BE50003A7221 /* GADMAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C7FB2312BE50003A7221 /* GADMAdapterMobFox.m */; };
+		B7D7C81D2312BE50003A7221 /* GADMNativeAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C7FD2312BE50003A7221 /* GADMNativeAdapterMobFox.m */; };
+		B7D7C81E2312BE50003A7221 /* MFAdNetworkExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C7FE2312BE50003A7221 /* MFAdNetworkExtras.m */; };
+		B7D7C81F2312BE50003A7221 /* MFMediatedNativeContentAd.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C7FF2312BE50003A7221 /* MFMediatedNativeContentAd.m */; };
+		B7D7C8202312BE50003A7221 /* MobFoxMoPubNativeCustomEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C8052312BE50003A7221 /* MobFoxMoPubNativeCustomEvent.m */; };
+		B7D7C8232312BE50003A7221 /* MobFoxMoPubCustomAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C80C2312BE50003A7221 /* MobFoxMoPubCustomAdapter.m */; };
+		B7D7C8242312BE50003A7221 /* MobFoxMoPubNativeAdRendererSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C80E2312BE50003A7221 /* MobFoxMoPubNativeAdRendererSettings.m */; };
+		B7D7C8262312BE50003A7221 /* MobFoxAdapterConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C8102312BE50003A7221 /* MobFoxAdapterConfiguration.m */; };
+		B7D7C8272312BE50003A7221 /* MoPubAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C8132312BE50003A7221 /* MoPubAdapterMobFox.m */; };
+		B7D7C8292312BE50003A7221 /* MobFoxMoPubUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C8152312BE50003A7221 /* MobFoxMoPubUtils.m */; };
+		B7D7C82A2312BE50003A7221 /* MPMobFoxNativeAdRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C8182312BE50003A7221 /* MPMobFoxNativeAdRenderer.m */; };
+		B7D7C82B2312BE50003A7221 /* MoPubInterstitialAdapterMobFox.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C81B2312BE50003A7221 /* MoPubInterstitialAdapterMobFox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +73,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B7D7C7992312B83C003A7221 /* MoPubSDKFramework.framework in Embed Frameworks */,
 				B7AC73A62305734300C902F6 /* MFXSDKCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -90,29 +98,40 @@
 		B72795C72270815400FA24C2 /* MFXTesterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFXTesterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72795CB2270815400FA24C2 /* MFXTesterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFXTesterUITests.m; sourceTree = "<group>"; };
 		B72795CD2270815400FA24C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B75F9A4A22D5D43000FB822F /* GADMAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMAdapterMobFox.m; sourceTree = "<group>"; };
-		B75F9A4B22D5D43000FB822F /* MFMediatedNativeContentAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFMediatedNativeContentAd.h; sourceTree = "<group>"; };
-		B75F9A4C22D5D43000FB822F /* GADMNativeAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMNativeAdapterMobFox.m; sourceTree = "<group>"; };
-		B75F9A4D22D5D43000FB822F /* MFMediatedNativeContentAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFMediatedNativeContentAd.m; sourceTree = "<group>"; };
-		B75F9A4E22D5D43000FB822F /* GADMAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdapterMobFox.h; sourceTree = "<group>"; };
-		B75F9A4F22D5D43000FB822F /* GADMNativeAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMNativeAdapterMobFox.h; sourceTree = "<group>"; };
-		B75F9A5122D5D43000FB822F /* MoPubAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubAdapterMobFox.h; sourceTree = "<group>"; };
-		B75F9A5322D5D43000FB822F /* MobFoxAdapterConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxAdapterConfiguration.h; sourceTree = "<group>"; };
-		B75F9A5922D5D43000FB822F /* MoPubInterstitialAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubInterstitialAdapterMobFox.h; sourceTree = "<group>"; };
-		B75F9A5B22D5D43000FB822F /* MobFoxAdapterConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxAdapterConfiguration.m; sourceTree = "<group>"; };
-		B75F9A5E22D5D43000FB822F /* MoPubAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubAdapterMobFox.m; sourceTree = "<group>"; };
-		B75F9A6422D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubInterstitialAdapterMobFox.m; sourceTree = "<group>"; };
-		B75F9A8C22D5FDB300FB822F /* MobFoxMoPubCustomAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxMoPubCustomAdapter.h; sourceTree = "<group>"; };
-		B75F9A8D22D5FDB300FB822F /* MobFoxMoPubCustomAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubCustomAdapter.m; sourceTree = "<group>"; };
-		B75F9A8F22D6098E00FB822F /* MPMobFoxNativeAdRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMobFoxNativeAdRenderer.m; sourceTree = "<group>"; };
-		B75F9A9022D6098E00FB822F /* MPMobFoxNativeAdRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMobFoxNativeAdRenderer.h; sourceTree = "<group>"; };
-		B75F9A9222D60CC400FB822F /* MobFoxMoPubNativeAdRendererSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobFoxMoPubNativeAdRendererSettings.h; sourceTree = "<group>"; };
-		B75F9A9322D60CC400FB822F /* MobFoxMoPubNativeAdRendererSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubNativeAdRendererSettings.m; sourceTree = "<group>"; };
-		B75F9A9522D616B600FB822F /* MobFoxMoPubNativeCustomEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxMoPubNativeCustomEvent.h; sourceTree = "<group>"; };
-		B75F9A9622D616B600FB822F /* MobFoxMoPubNativeCustomEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubNativeCustomEvent.m; sourceTree = "<group>"; };
 		B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B7A1629122B63DC900B6ECC8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B7AC73A42305734200C902F6 /* MFXSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MFXSDKCore.framework; sourceTree = "<group>"; };
+		B7D7C7942312B48C003A7221 /* AdaptersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptersViewController.h; sourceTree = "<group>"; };
+		B7D7C7952312B48C003A7221 /* AdaptersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdaptersViewController.m; sourceTree = "<group>"; };
+		B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MoPubSDKFramework.framework; sourceTree = "<group>"; };
+		B7D7C79A2312B846003A7221 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		B7D7C79B2312B846003A7221 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		B7D7C79C2312B846003A7221 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		B7D7C79D2312B846003A7221 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		B7D7C7FB2312BE50003A7221 /* GADMAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMAdapterMobFox.m; sourceTree = "<group>"; };
+		B7D7C7FC2312BE50003A7221 /* MFMediatedNativeContentAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFMediatedNativeContentAd.h; sourceTree = "<group>"; };
+		B7D7C7FD2312BE50003A7221 /* GADMNativeAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMNativeAdapterMobFox.m; sourceTree = "<group>"; };
+		B7D7C7FE2312BE50003A7221 /* MFAdNetworkExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFAdNetworkExtras.m; sourceTree = "<group>"; };
+		B7D7C7FF2312BE50003A7221 /* MFMediatedNativeContentAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFMediatedNativeContentAd.m; sourceTree = "<group>"; };
+		B7D7C8002312BE50003A7221 /* GADMAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdapterMobFox.h; sourceTree = "<group>"; };
+		B7D7C8012312BE50003A7221 /* GADMNativeAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMNativeAdapterMobFox.h; sourceTree = "<group>"; };
+		B7D7C8022312BE50003A7221 /* MFAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFAdNetworkExtras.h; sourceTree = "<group>"; };
+		B7D7C8042312BE50003A7221 /* MoPubAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubAdapterMobFox.h; sourceTree = "<group>"; };
+		B7D7C8052312BE50003A7221 /* MobFoxMoPubNativeCustomEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubNativeCustomEvent.m; sourceTree = "<group>"; };
+		B7D7C8062312BE50003A7221 /* MobFoxAdapterConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxAdapterConfiguration.h; sourceTree = "<group>"; };
+		B7D7C8092312BE50003A7221 /* MobFoxMoPubUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxMoPubUtils.h; sourceTree = "<group>"; };
+		B7D7C80B2312BE50003A7221 /* MPMobFoxNativeAdRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMobFoxNativeAdRenderer.h; sourceTree = "<group>"; };
+		B7D7C80C2312BE50003A7221 /* MobFoxMoPubCustomAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubCustomAdapter.m; sourceTree = "<group>"; };
+		B7D7C80D2312BE50003A7221 /* MoPubInterstitialAdapterMobFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubInterstitialAdapterMobFox.h; sourceTree = "<group>"; };
+		B7D7C80E2312BE50003A7221 /* MobFoxMoPubNativeAdRendererSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubNativeAdRendererSettings.m; sourceTree = "<group>"; };
+		B7D7C8102312BE50003A7221 /* MobFoxAdapterConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxAdapterConfiguration.m; sourceTree = "<group>"; };
+		B7D7C8122312BE50003A7221 /* MobFoxMoPubNativeCustomEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxMoPubNativeCustomEvent.h; sourceTree = "<group>"; };
+		B7D7C8132312BE50003A7221 /* MoPubAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubAdapterMobFox.m; sourceTree = "<group>"; };
+		B7D7C8152312BE50003A7221 /* MobFoxMoPubUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubUtils.m; sourceTree = "<group>"; };
+		B7D7C8172312BE50003A7221 /* MobFoxMoPubCustomAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxMoPubCustomAdapter.h; sourceTree = "<group>"; };
+		B7D7C8182312BE50003A7221 /* MPMobFoxNativeAdRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMobFoxNativeAdRenderer.m; sourceTree = "<group>"; };
+		B7D7C81A2312BE50003A7221 /* MobFoxMoPubNativeAdRendererSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobFoxMoPubNativeAdRendererSettings.h; sourceTree = "<group>"; };
+		B7D7C81B2312BE50003A7221 /* MoPubInterstitialAdapterMobFox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubInterstitialAdapterMobFox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +139,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D7C79E2312B846003A7221 /* GoogleUtilities.framework in Frameworks */,
+				B7D7C79F2312B846003A7221 /* GoogleAppMeasurement.framework in Frameworks */,
+				B7D7C7A02312B846003A7221 /* nanopb.framework in Frameworks */,
+				B7D7C7A12312B846003A7221 /* GoogleMobileAds.framework in Frameworks */,
 				B7A1629222B63DC900B6ECC8 /* libz.tbd in Frameworks */,
 				B7A1629022B63DC100B6ECC8 /* AdSupport.framework in Frameworks */,
+				B7D7C7982312B83C003A7221 /* MoPubSDKFramework.framework in Frameworks */,
 				B7AC73A52305734300C902F6 /* MFXSDKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +170,7 @@
 		B727959B2270815200FA24C2 = {
 			isa = PBXGroup;
 			children = (
+				B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */,
 				B7AC73A42305734200C902F6 /* MFXSDKCore.framework */,
 				B72795A62270815200FA24C2 /* MFXTester */,
 				B72795BF2270815300FA24C2 /* MFXTesterTests */,
@@ -168,7 +193,7 @@
 		B72795A62270815200FA24C2 /* MFXTester */ = {
 			isa = PBXGroup;
 			children = (
-				B75F9A4822D5D43000FB822F /* Adapters */,
+				B7D7C7F92312BE50003A7221 /* Adapters */,
 				B72795A72270815200FA24C2 /* AppDelegate.h */,
 				B72795A82270815200FA24C2 /* AppDelegate.m */,
 				B72795AA2270815200FA24C2 /* ViewController.h */,
@@ -178,6 +203,8 @@
 				B72795B22270815300FA24C2 /* LaunchScreen.storyboard */,
 				B72795B52270815300FA24C2 /* Info.plist */,
 				B72795B62270815300FA24C2 /* main.m */,
+				B7D7C7942312B48C003A7221 /* AdaptersViewController.h */,
+				B7D7C7952312B48C003A7221 /* AdaptersViewController.m */,
 			);
 			path = MFXTester;
 			sourceTree = "<group>";
@@ -203,51 +230,59 @@
 		B72795E62270825200FA24C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B7D7C79B2312B846003A7221 /* GoogleAppMeasurement.framework */,
+				B7D7C79D2312B846003A7221 /* GoogleMobileAds.framework */,
+				B7D7C79A2312B846003A7221 /* GoogleUtilities.framework */,
+				B7D7C79C2312B846003A7221 /* nanopb.framework */,
 				B7A1629122B63DC900B6ECC8 /* libz.tbd */,
 				B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B75F9A4822D5D43000FB822F /* Adapters */ = {
+		B7D7C7F92312BE50003A7221 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				B75F9A4922D5D43000FB822F /* AdMob */,
-				B75F9A5022D5D43000FB822F /* MoPub */,
+				B7D7C7FA2312BE50003A7221 /* AdMob */,
+				B7D7C8032312BE50003A7221 /* MoPub */,
 			);
 			path = Adapters;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
-		B75F9A4922D5D43000FB822F /* AdMob */ = {
+		B7D7C7FA2312BE50003A7221 /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
-				B75F9A4A22D5D43000FB822F /* GADMAdapterMobFox.m */,
-				B75F9A4B22D5D43000FB822F /* MFMediatedNativeContentAd.h */,
-				B75F9A4C22D5D43000FB822F /* GADMNativeAdapterMobFox.m */,
-				B75F9A4D22D5D43000FB822F /* MFMediatedNativeContentAd.m */,
-				B75F9A4E22D5D43000FB822F /* GADMAdapterMobFox.h */,
-				B75F9A4F22D5D43000FB822F /* GADMNativeAdapterMobFox.h */,
+				B7D7C8002312BE50003A7221 /* GADMAdapterMobFox.h */,
+				B7D7C7FB2312BE50003A7221 /* GADMAdapterMobFox.m */,
+				B7D7C8012312BE50003A7221 /* GADMNativeAdapterMobFox.h */,
+				B7D7C7FD2312BE50003A7221 /* GADMNativeAdapterMobFox.m */,
+				B7D7C8022312BE50003A7221 /* MFAdNetworkExtras.h */,
+				B7D7C7FE2312BE50003A7221 /* MFAdNetworkExtras.m */,
+				B7D7C7FC2312BE50003A7221 /* MFMediatedNativeContentAd.h */,
+				B7D7C7FF2312BE50003A7221 /* MFMediatedNativeContentAd.m */,
 			);
 			path = AdMob;
 			sourceTree = "<group>";
 		};
-		B75F9A5022D5D43000FB822F /* MoPub */ = {
+		B7D7C8032312BE50003A7221 /* MoPub */ = {
 			isa = PBXGroup;
 			children = (
-				B75F9A9522D616B600FB822F /* MobFoxMoPubNativeCustomEvent.h */,
-				B75F9A9622D616B600FB822F /* MobFoxMoPubNativeCustomEvent.m */,
-				B75F9A8C22D5FDB300FB822F /* MobFoxMoPubCustomAdapter.h */,
-				B75F9A8D22D5FDB300FB822F /* MobFoxMoPubCustomAdapter.m */,
-				B75F9A5322D5D43000FB822F /* MobFoxAdapterConfiguration.h */,
-				B75F9A5B22D5D43000FB822F /* MobFoxAdapterConfiguration.m */,
-				B75F9A5922D5D43000FB822F /* MoPubInterstitialAdapterMobFox.h */,
-				B75F9A6422D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m */,
-				B75F9A5122D5D43000FB822F /* MoPubAdapterMobFox.h */,
-				B75F9A5E22D5D43000FB822F /* MoPubAdapterMobFox.m */,
-				B75F9A9022D6098E00FB822F /* MPMobFoxNativeAdRenderer.h */,
-				B75F9A8F22D6098E00FB822F /* MPMobFoxNativeAdRenderer.m */,
-				B75F9A9222D60CC400FB822F /* MobFoxMoPubNativeAdRendererSettings.h */,
-				B75F9A9322D60CC400FB822F /* MobFoxMoPubNativeAdRendererSettings.m */,
+				B7D7C8062312BE50003A7221 /* MobFoxAdapterConfiguration.h */,
+				B7D7C8102312BE50003A7221 /* MobFoxAdapterConfiguration.m */,
+				B7D7C8172312BE50003A7221 /* MobFoxMoPubCustomAdapter.h */,
+				B7D7C80C2312BE50003A7221 /* MobFoxMoPubCustomAdapter.m */,
+				B7D7C81A2312BE50003A7221 /* MobFoxMoPubNativeAdRendererSettings.h */,
+				B7D7C80E2312BE50003A7221 /* MobFoxMoPubNativeAdRendererSettings.m */,
+				B7D7C8122312BE50003A7221 /* MobFoxMoPubNativeCustomEvent.h */,
+				B7D7C8052312BE50003A7221 /* MobFoxMoPubNativeCustomEvent.m */,
+				B7D7C8092312BE50003A7221 /* MobFoxMoPubUtils.h */,
+				B7D7C8152312BE50003A7221 /* MobFoxMoPubUtils.m */,
+				B7D7C8042312BE50003A7221 /* MoPubAdapterMobFox.h */,
+				B7D7C8132312BE50003A7221 /* MoPubAdapterMobFox.m */,
+				B7D7C80D2312BE50003A7221 /* MoPubInterstitialAdapterMobFox.h */,
+				B7D7C81B2312BE50003A7221 /* MoPubInterstitialAdapterMobFox.m */,
+				B7D7C80B2312BE50003A7221 /* MPMobFoxNativeAdRenderer.h */,
+				B7D7C8182312BE50003A7221 /* MPMobFoxNativeAdRenderer.m */,
 			);
 			path = MoPub;
 			sourceTree = "<group>";
@@ -393,8 +428,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D7C82B2312BE50003A7221 /* MoPubInterstitialAdapterMobFox.m in Sources */,
+				B7D7C81E2312BE50003A7221 /* MFAdNetworkExtras.m in Sources */,
+				B7D7C81D2312BE50003A7221 /* GADMNativeAdapterMobFox.m in Sources */,
+				B7D7C82A2312BE50003A7221 /* MPMobFoxNativeAdRenderer.m in Sources */,
+				B7D7C8262312BE50003A7221 /* MobFoxAdapterConfiguration.m in Sources */,
 				B72795AC2270815200FA24C2 /* ViewController.m in Sources */,
+				B7D7C8292312BE50003A7221 /* MobFoxMoPubUtils.m in Sources */,
+				B7D7C8202312BE50003A7221 /* MobFoxMoPubNativeCustomEvent.m in Sources */,
+				B7D7C8242312BE50003A7221 /* MobFoxMoPubNativeAdRendererSettings.m in Sources */,
 				B72795B72270815300FA24C2 /* main.m in Sources */,
+				B7D7C8232312BE50003A7221 /* MobFoxMoPubCustomAdapter.m in Sources */,
+				B7D7C7962312B48C003A7221 /* AdaptersViewController.m in Sources */,
+				B7D7C81F2312BE50003A7221 /* MFMediatedNativeContentAd.m in Sources */,
+				B7D7C81C2312BE50003A7221 /* GADMAdapterMobFox.m in Sources */,
+				B7D7C8272312BE50003A7221 /* MoPubAdapterMobFox.m in Sources */,
 				B72795A92270815200FA24C2 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,13 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75F9A8122D5D43000FB822F /* MoPubAdapterMobFox.m in Sources */,
-				B75F9A6922D5D43000FB822F /* GADMNativeAdapterMobFox.m in Sources */,
-				B75F9A8A22D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m in Sources */,
-				B75F9A6C22D5D43000FB822F /* MFMediatedNativeContentAd.m in Sources */,
 				B72795C12270815400FA24C2 /* MFXTesterTests.m in Sources */,
-				B75F9A6622D5D43000FB822F /* GADMAdapterMobFox.m in Sources */,
-				B75F9A7E22D5D43000FB822F /* MobFoxAdapterConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,13 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75F9A8222D5D43000FB822F /* MoPubAdapterMobFox.m in Sources */,
-				B75F9A6A22D5D43000FB822F /* GADMNativeAdapterMobFox.m in Sources */,
-				B75F9A8B22D5D43000FB822F /* MoPubInterstitialAdapterMobFox.m in Sources */,
-				B75F9A6D22D5D43000FB822F /* MFMediatedNativeContentAd.m in Sources */,
 				B72795CC2270815400FA24C2 /* MFXTesterUITests.m in Sources */,
-				B75F9A6722D5D43000FB822F /* GADMAdapterMobFox.m in Sources */,
-				B75F9A7F22D5D43000FB822F /* MobFoxAdapterConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

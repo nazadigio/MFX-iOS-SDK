@@ -8,7 +8,12 @@
 
 #import "AppDelegate.h"
 #import <MFXSDKCore/MFXSDKCore.h>
+#import <MoPubSDKFramework/MoPub.h>
 
+
+#define MOPUB_HASH_ADAPTER_BANNER @"234dd5a1b1bf4a5f9ab50431f9615784"
+
+@import GoogleMobileAds;
 
 @interface AppDelegate ()
 
@@ -20,6 +25,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [MobFoxSDK sharedInstance];
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
+    
+    MPMoPubConfiguration *sdkConfig = [[MPMoPubConfiguration alloc] initWithAdUnitIdForAppInitialization:MOPUB_HASH_ADAPTER_BANNER];
+    
+    [[MoPub sharedInstance] initializeSdkWithConfiguration:sdkConfig completion:nil];
 
     return YES;
 }
