@@ -196,6 +196,8 @@
 				B7D7C7F92312BE50003A7221 /* Adapters */,
 				B72795A72270815200FA24C2 /* AppDelegate.h */,
 				B72795A82270815200FA24C2 /* AppDelegate.m */,
+				B7D7C7942312B48C003A7221 /* AdaptersViewController.h */,
+				B7D7C7952312B48C003A7221 /* AdaptersViewController.m */,
 				B72795AA2270815200FA24C2 /* ViewController.h */,
 				B72795AB2270815200FA24C2 /* ViewController.m */,
 				B72795AD2270815200FA24C2 /* Main.storyboard */,
@@ -203,8 +205,6 @@
 				B72795B22270815300FA24C2 /* LaunchScreen.storyboard */,
 				B72795B52270815300FA24C2 /* Info.plist */,
 				B72795B62270815300FA24C2 /* main.m */,
-				B7D7C7942312B48C003A7221 /* AdaptersViewController.h */,
-				B7D7C7952312B48C003A7221 /* AdaptersViewController.m */,
 			);
 			path = MFXTester;
 			sourceTree = "<group>";

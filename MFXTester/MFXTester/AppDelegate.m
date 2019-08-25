@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 #import <MFXSDKCore/MFXSDKCore.h>
+#if __has_include(<MoPub/MoPub.h>)
+#import <MoPub/MoPub.h>
+#elif __has_include(<MoPubSDKFramework/MoPub.h>)
 #import <MoPubSDKFramework/MoPub.h>
+#endif
 
 
 #define MOPUB_HASH_ADAPTER_BANNER @"234dd5a1b1bf4a5f9ab50431f9615784"

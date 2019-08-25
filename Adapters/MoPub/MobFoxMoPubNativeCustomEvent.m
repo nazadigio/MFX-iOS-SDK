@@ -6,7 +6,6 @@
 //  Copyright © 2019 MobFox. All rights reserved.
 //
 
-#import <MoPubSDKFramework/MoPub.h>
 #import "MobFoxMoPubCustomAdapter.h"
 #import "MobFoxMoPubNativeCustomEvent.h"
 #import "MobFoxMoPubUtils.h"
