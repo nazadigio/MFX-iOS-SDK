@@ -71,7 +71,7 @@ CGPoint bannerCenterPoint;
 
     if (_mNativeAd!=nil)
     {
-        [_mNativeAd releaseNativeAd];
+         [MobFoxSDK releaseNativeAd:_mNativeAd];
         _mNativeAd = nil;
     }
 

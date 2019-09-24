@@ -29,14 +29,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MFXBannerAd : NSObject
 
 //Public methods
--(instancetype) initWithHash:(NSString *)invh
-                       width:(NSInteger)width
-                      height:(NSInteger)height
-                withDelegate:(id <MFXBannerAdDelegate>)delegate;
+
+@property (nonatomic, copy) NSString *invh;
+@property (nonatomic, strong) NSNumber* mFloorPrice;
+
+
 -(void) loadBanner;
 -(void) addBannerViewToView:(UIView*)view atRect:(CGRect)rc;
 -(void) addBannerViewToView:(UIView*)view centeredAt:(CGPoint)pt;
--(UIView*)getBannerAsView;
+-(UIView*) getBannerAsView;
 -(void) setBannerRefresh:(NSInteger)intervalInSeconds;
 -(void) releaseBanner;
 - (void)setBannerFloorPrice:(NSNumber *)floorPrice;

@@ -9,38 +9,32 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "MFXWebView.h"
-#import "MFXInterstitialInner.h"
 
-#ifndef MFXLog
-#ifdef DEBUG
-#define MFXLog(_format_, ...) NSLog(_format_, ## __VA_ARGS__)
-#else
-#define MFXLog(_format_, ...)
-#endif
-#endif
+@class MFXManager;
 
 @interface MFXInterstitialViewController : UIViewController <MFXWebViewAdDelegate>
 
 @property (nonatomic,assign) bool rotateToLandscape;
 
-- (instancetype _Nullable )initWithUUID:(NSString*_Nonnull)uuid
-                     andINVH:(NSString*_Nonnull)invh;
+- (instancetype _Nullable )initWithUUID:(NSString * _Nonnull)uuid
+                                andINVH:(NSString * _Nonnull)invh
+                                manager:(MFXManager *)manager;
 
 - (void)setTagHTML:(nonnull NSString*)html
-          response:(NSString*_Nullable)resp
-   completionBlock:(void(^_Nullable)( NSString* _Nullable result , NSError* _Nullable error))completionBlock;
+          response:(NSString * _Nullable)resp
+   completionBlock:(void(^_Nullable)( NSString * _Nullable result , NSError * _Nullable error))completionBlock;
 
-- (void)callTagFunc:(NSString*_Nullable)funcName
-             params:(NSString*_Nullable)paramsJsonStr
-    completionBlock:(void(^_Nullable)(NSString* _Nullable result, NSError * _Nullable error))completionBlock;
+- (void)callTagFunc:(NSString * _Nullable)funcName
+             params:(NSString * _Nullable)paramsJsonStr
+    completionBlock:(void(^_Nullable)(NSString * _Nullable result, NSError * _Nullable error))completionBlock;
 
 - (void)closeInterstitialVC;
 
 - (void)pausePlay;
 - (void)resumePlay;
 
-- (NSString* _Nullable)getUUID;
-- (NSString* _Nullable)getINVH;
+- (NSString * _Nullable)getUUID;
+- (NSString * _Nullable)getINVH;
 
 - (void)resetVCForNextLoad;
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MFXSDK_AdMob"
-  s.version          = "4.0.3"
+  s.version          = "4.0.4"
   s.summary          = "MobFox's iOS AdMob Adapter"
 
 wd = "Working Dir: %s" % [Dir.pwd]
@@ -31,7 +31,7 @@ puts wd
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "MobFox" => "ofir.ka@mobfox.com"  }
-  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "4.0.3" }
+  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "4.0.4" }
 
   puts   s.source
 
@@ -61,6 +61,6 @@ puts wd
    s.preserve_paths = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
   # s.ios.frameworks = 'CoreData', 'SystemConfiguration'
 
-  s.dependency 'Google-Mobile-Ads-SDK', '= 7.47.0'
+  s.dependency 'Google-Mobile-Ads-SDK', '~> 7.47'
   #s.dependency 'mopub-ios-sdk', '5.0'
 end

@@ -15,7 +15,7 @@
 #import "MFXScriptHandler.h"
 
 @class MFXWebView;
-
+@class MFXManager;
 @protocol MFXWebViewAdDelegate <NSObject>
 
 - (void)MobFoxWebViewAdClicked:(NSString*)url;
@@ -38,7 +38,8 @@
 - (instancetype)initWithFrame:(CGRect)frame
                       andUUID:(NSString*)uuid
                       andINVH:(NSString*)invh
-                        andVC:(UIViewController*)parentVC;
+                        andVC:(UIViewController*)parentVC
+                      manager:(MFXManager *)manager;
 
 - (void)deallocateStuff;
 

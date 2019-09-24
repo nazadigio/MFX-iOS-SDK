@@ -14,7 +14,9 @@
 
 
 - (void)requestAdWithSize:(CGSize)size customEventInfo:(NSDictionary *)info{
-    
+    if(self.ad){
+        [MobFoxSDK releaseBanner:self.ad];
+    }
   //  NSLog(@"MoPub >> MobFox >> invh: %@",[info valueForKey:@"invh"]);
     NSLog(@"MoPub >> MobFox >> custom event data: %@",[info description]);
     
@@ -41,14 +43,34 @@
     [MobFoxSDK loadBanner:self.ad];
 }
 
+
+- (UIViewController *) topViewController {
+    UIViewController *baseVC = UIApplication.sharedApplication.keyWindow.rootViewController;
+    if ([baseVC isKindOfClass:[UINavigationController class]]) {
+        return ((UINavigationController *)baseVC).visibleViewController;
+    }
+    
+    if ([baseVC isKindOfClass:[UITabBarController class]]) {
+        UIViewController *selectedTVC = ((UITabBarController*)baseVC).selectedViewController;
+        if (selectedTVC) {
+            return selectedTVC;
+        }
+    }
+    
+    if (baseVC.presentedViewController) {
+        return baseVC.presentedViewController;
+    }
+    return baseVC;
+}
+
 #pragma mark MobFox Ad Delegate
 
 - (void)bannerAdLoaded:(MFXBannerAd *)banner
 {
     NSLog(@"MoPub >> MobFox >> ad loaded");
-    
+    UIViewController *vc = [self topViewController];
     UIView* bannerView = [MobFoxSDK getBannerAsView:banner];
-
+    [MobFoxSDK addBanner:banner toView:vc.view atRect:self.bannerAdRect];
     MPLogAdEvent([MPLogEvent adLoadSuccessForAdapter:NSStringFromClass(self.class)], @"");
 
     // [self.delegate trackImpression];
@@ -96,9 +118,6 @@
 
 //===============================================================
 
-- (void)dealloc {
-    [MobFoxSDK releaseBanner:self.ad];
-    self.ad = nil;
-}
+
 
 @end

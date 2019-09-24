@@ -18,7 +18,7 @@
 #pragma mark GADMAdNetworkAdapter Delegate
 
 + (NSString *)adapterVersion {
-    return @"4.0.3";
+    return @"4.0.4";
 }
 
 + (Class<GADAdNetworkExtras>)networkExtrasClass {
@@ -200,14 +200,33 @@
     }
 }
 
+- (UIViewController *) topViewController {
+    UIViewController *baseVC = UIApplication.sharedApplication.keyWindow.rootViewController;
+    if ([baseVC isKindOfClass:[UINavigationController class]]) {
+        return ((UINavigationController *)baseVC).visibleViewController;
+    }
+    
+    if ([baseVC isKindOfClass:[UITabBarController class]]) {
+        UIViewController *selectedTVC = ((UITabBarController*)baseVC).selectedViewController;
+        if (selectedTVC) {
+            return selectedTVC;
+        }
+    }
+    
+    if (baseVC.presentedViewController) {
+        return baseVC.presentedViewController;
+    }
+    return baseVC;
+}
+
 //===============================================================
 
 #pragma mark MobFox Ad Delegate
 
 - (void)bannerAdLoaded:(MFXBannerAd *)banner
 {
+    UIViewController *vc = [self topViewController];
     NSLog(@"MobFox >> GADMAdapterMobFox >> Got Ad");
-    
     UIView* bannerView = nil;
     
     if (banner!=nil)
@@ -222,7 +241,7 @@
             }
         }
     }
-    
+    [MobFoxSDK addBanner:banner toView:vc.view atRect:bannerView.frame];
     [self.connector adapter:self didReceiveAdView:bannerView];
 }
 
@@ -317,12 +336,6 @@
 
 - (void)stopBeingDelegate
 {
-}
-
-- (void) dealloc{
-    
-    [MobFoxSDK releaseBanner:self.banner];
-    [MobFoxSDK releaseInterstitial:self.interstitial];
 }
 
 

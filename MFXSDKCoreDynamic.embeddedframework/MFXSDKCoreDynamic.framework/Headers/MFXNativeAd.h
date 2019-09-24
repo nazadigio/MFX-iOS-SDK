@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class MFXNativeAd;
@@ -26,31 +25,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFXNativeAd : NSObject
 
--(instancetype)initWithHash:(NSString *)invh
-               withDelegate:(id <MFXNativeAdDelegate>)delegate;
+@property (nonatomic, readonly) id <MFXNativeAdDelegate> delegate;
 
--(void)loadNativeAd;
+- (void)loadNativeAd;
 
--(void)loadNativeAdImages;
+- (void)loadNativeAdImages;
 
--(void)registerNativeAdForInteraction:(UIView*)view;
--(void)callToActionClicked;
+- (void)registerNativeAdForInteraction:(UIView *)view;
+- (void)callToActionClicked;
 
--(NSString*)getNativeAdLink;
--(NSDictionary*)getNativeAdTexts;
--(NSDictionary*)getNativeAdImageUrls;
--(NSDictionary*)getNativeAdImages;
+- (NSString *)getNativeAdLink;
+- (NSDictionary *)getNativeAdTexts;
+- (NSDictionary *)getNativeAdImageUrls;
+- (NSDictionary *)getNativeAdImages;
 
--(void)setNativeAdContext:(NSString*)context;
--(void)setNativeAdPlacementType:(NSString*)placementType;
+- (void)setNativeAdContext:(NSString *)context;
+- (void)setNativeAdPlacementType:(NSString *)placementType;
 
--(void)setNativeAdIconImage:(BOOL)required withSize:(NSInteger)size;
--(void)setNativeAdMainImage:(BOOL)required withSize:(CGSize)size;
--(void)setNativeAdTitle:(BOOL)required withMaxLen:(NSInteger)maxLen;
--(void)setNativeAdDesc:(BOOL)required withMaxLen:(NSInteger)maxLen;
-
+- (void)setNativeAdIconImage:(BOOL)required withSize:(NSInteger)size;
+- (void)setNativeAdMainImage:(BOOL)required withSize:(CGSize)size;
+- (void)setNativeAdTitle:(BOOL)required withMaxLen:(NSInteger)maxLen;
+- (void)setNativeAdDesc:(BOOL)required withMaxLen:(NSInteger)maxLen;
 - (void)setNativeFloorPrice:(NSNumber *)floorPrice;
--(void)releaseNativeAd;
+
+- (void)releaseNativeAd __attribute((deprecated("Use [MobFoxSDK releaseNativeAd:ad] instead.")));
 
 @end
 

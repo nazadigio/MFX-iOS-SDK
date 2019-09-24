@@ -15,10 +15,11 @@
 		B72795B72270815300FA24C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795B62270815300FA24C2 /* main.m */; };
 		B72795C12270815400FA24C2 /* MFXTesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795C02270815300FA24C2 /* MFXTesterTests.m */; };
 		B72795CC2270815400FA24C2 /* MFXTesterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795CB2270815400FA24C2 /* MFXTesterUITests.m */; };
+		B748B252233A3EBB00F37DE5 /* MFXSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B748B251233A3EBB00F37DE5 /* MFXSDKCore.framework */; };
+		B748B253233A3EC000F37DE5 /* MFXSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B748B251233A3EBB00F37DE5 /* MFXSDKCore.framework */; };
+		B748B254233A3EC000F37DE5 /* MFXSDKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B748B251233A3EBB00F37DE5 /* MFXSDKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B7A1629022B63DC100B6ECC8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */; };
 		B7A1629222B63DC900B6ECC8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1629122B63DC900B6ECC8 /* libz.tbd */; };
-		B7AC73A52305734300C902F6 /* MFXSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC73A42305734200C902F6 /* MFXSDKCore.framework */; };
-		B7AC73A62305734300C902F6 /* MFXSDKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7AC73A42305734200C902F6 /* MFXSDKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B7D7C7962312B48C003A7221 /* AdaptersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D7C7952312B48C003A7221 /* AdaptersViewController.m */; };
 		B7D7C7982312B83C003A7221 /* MoPubSDKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */; };
 		B7D7C7992312B83C003A7221 /* MoPubSDKFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -73,8 +74,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B748B254233A3EC000F37DE5 /* MFXSDKCore.framework in Embed Frameworks */,
 				B7D7C7992312B83C003A7221 /* MoPubSDKFramework.framework in Embed Frameworks */,
-				B7AC73A62305734300C902F6 /* MFXSDKCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,9 +99,9 @@
 		B72795C72270815400FA24C2 /* MFXTesterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFXTesterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72795CB2270815400FA24C2 /* MFXTesterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFXTesterUITests.m; sourceTree = "<group>"; };
 		B72795CD2270815400FA24C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B748B251233A3EBB00F37DE5 /* MFXSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MFXSDKCore.framework; sourceTree = "<group>"; };
 		B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B7A1629122B63DC900B6ECC8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		B7AC73A42305734200C902F6 /* MFXSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MFXSDKCore.framework; sourceTree = "<group>"; };
 		B7D7C7942312B48C003A7221 /* AdaptersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptersViewController.h; sourceTree = "<group>"; };
 		B7D7C7952312B48C003A7221 /* AdaptersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdaptersViewController.m; sourceTree = "<group>"; };
 		B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MoPubSDKFramework.framework; sourceTree = "<group>"; };
@@ -144,9 +145,10 @@
 				B7D7C7A02312B846003A7221 /* nanopb.framework in Frameworks */,
 				B7D7C7A12312B846003A7221 /* GoogleMobileAds.framework in Frameworks */,
 				B7A1629222B63DC900B6ECC8 /* libz.tbd in Frameworks */,
+				B748B253233A3EC000F37DE5 /* MFXSDKCore.framework in Frameworks */,
 				B7A1629022B63DC100B6ECC8 /* AdSupport.framework in Frameworks */,
+				B748B252233A3EBB00F37DE5 /* MFXSDKCore.framework in Frameworks */,
 				B7D7C7982312B83C003A7221 /* MoPubSDKFramework.framework in Frameworks */,
-				B7AC73A52305734300C902F6 /* MFXSDKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,8 +172,8 @@
 		B727959B2270815200FA24C2 = {
 			isa = PBXGroup;
 			children = (
+				B748B251233A3EBB00F37DE5 /* MFXSDKCore.framework */,
 				B7D7C7972312B83C003A7221 /* MoPubSDKFramework.framework */,
-				B7AC73A42305734200C902F6 /* MFXSDKCore.framework */,
 				B72795A62270815200FA24C2 /* MFXTester */,
 				B72795BF2270815300FA24C2 /* MFXTesterTests */,
 				B72795CA2270815400FA24C2 /* MFXTesterUITests */,

@@ -13,19 +13,10 @@
 #import "MFXNativeAd.h"
 
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 #define VIDEO_CACHE_PORT 12345
 #define VIDEO_CACHE_FOLDER @"/MobFoxVideoCache"
-
-#ifndef MFXLog
-#ifdef DEBUG
-#define MFXLog(_format_, ...) NSLog(_format_, ## __VA_ARGS__)
-#else
-#define MFXLog(_format_, ...)
-#endif
-#endif
 
 // ----------------------------------------------------------------------
 
@@ -47,7 +38,7 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 ///////////////////////////
 
 + (instancetype) sharedInstance;
-+ (BOOL)isInitialized;
+- (BOOL)isInitialized;
 
 + (void)setGDPR:(BOOL)bConsented;
 + (void)setGDPRConsentString:(NSString *)consentString;
@@ -115,9 +106,8 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 +(void)setNativeAdMainImage:(MFXNativeAd *)mAd isRequired:(BOOL)required withSize:(CGSize)size;
 +(void)setNativeAdTitle:(MFXNativeAd *)mAd isRequired:(BOOL)required withMaxLen:(NSInteger)maxLen;
 +(void)setNativeAdDesc:(MFXNativeAd *)mAd isRequired:(BOOL)required withMaxLen:(NSInteger)maxLen;
-+(void)setNativeFloorPrice:(MFXInterstitialAd *)mAd withValue:(NSNumber *)floor;
++(void)setNativeFloorPrice:(MFXNativeAd *)mAd withValue:(NSNumber *)floor;
 +(void)releaseNativeAd:(MFXNativeAd *)mAd;
-
 
 @end
 

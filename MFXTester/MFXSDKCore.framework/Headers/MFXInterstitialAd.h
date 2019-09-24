@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class MFXInterstitialAd;
@@ -28,13 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MFXInterstitialAd : NSObject 
 
--(instancetype)initWithHash:(NSString *)invh
-      withRootViewContoller:(UIViewController*)root
-               withDelegate:(id <MFXInterstitialAdDelegate>)delegate;
--(void)loadInterstitial;
--(void)showInterstitial;
--(void)showInterstitialAboveViewController:(UIViewController*)parentVC;
--(void)releaseInterstitial;
+- (void)loadInterstitial;
+- (void)showInterstitial;
+- (void)showInterstitialAboveViewController:(UIViewController *)parentVC;
+- (void)releaseInterstitial;
 - (void)setInterstitialFloorPrice:(NSNumber *)floorPrice;
 
 @end

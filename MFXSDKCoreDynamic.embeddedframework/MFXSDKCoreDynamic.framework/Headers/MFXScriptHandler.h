@@ -11,6 +11,7 @@
 #import <WebKit/WebKit.h>
 
 @class MFXScriptHandler;
+@class MFXManager;
 
 @protocol MFXScriptHandlerDelegate <NSObject>
 
@@ -26,6 +27,7 @@
 
 @interface MFXScriptHandler : NSObject <WKScriptMessageHandler>
 
+- (instancetype)initWithManager:(MFXManager *)manager;
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message;
 

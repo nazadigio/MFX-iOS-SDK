@@ -21,7 +21,7 @@
 
 + (NSString *)adapterVersion {
     
-    return @"4.0.3";
+    return @"4.0.4";
 }
 
 + (Class<GADAdNetworkExtras>)networkExtrasClass {
