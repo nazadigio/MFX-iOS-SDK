@@ -61,6 +61,6 @@ puts wd
    s.preserve_paths = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
   # s.ios.frameworks = 'CoreData', 'SystemConfiguration'
 
-  s.dependency 'Google-Mobile-Ads-SDK', '~> 7.47'
+  s.dependency 'Google-Mobile-Ads-SDK', '~> 7.48'
   #s.dependency 'mopub-ios-sdk', '5.0'
 end

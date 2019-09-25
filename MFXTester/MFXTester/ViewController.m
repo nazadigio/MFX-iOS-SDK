@@ -15,7 +15,7 @@
 #define HASH_BANNER_VIDEO @"80187188f458cfde788d961b6882fd53"
 #define HASH_INTER_HTML   @"267d72ac3f77a3f447b32cf7ebf20673"
 #define HASH_INTER_VIDEO  @"80187188f458cfde788d961b6882fd53"
-#define HASH_NATIVE       @"a764347547748896b84e0b8ccd90fd62"
+#define HASH_NATIVE       @"d8bd50e4ba71a708ad224464bdcdc237" //@"a764347547748896b84e0b8ccd90fd62"
 
 @interface ViewController ()
 
