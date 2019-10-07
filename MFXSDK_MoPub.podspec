@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MFXSDK_MoPub"
-  s.version          = "4.0.4"
+  s.version          = "4.0.5"
   s.summary          = "MobFox's iOS MopPub Adapter"
 
 wd = "Working Dir: %s" % [Dir.pwd]
@@ -31,7 +31,7 @@ puts wd
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "MobFox" => "ofir.ka@mobfox.com"  }
-  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "4.0.4" }
+  s.source           = { :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :tag => "4.0.5" }
 
   puts   s.source
 
