@@ -20,22 +20,23 @@
 
 @implementation MobFoxMoPubUtils
 
-+ (void)gdprHandler{
-    
-    ///////// GDPR //////////
-    
++ (void)gdprHandler {
+    NSString *subjToGDPR = @"0";
+    // checks for gdpr appliant via MoPub
     MPBool gdprApplies = [MoPub sharedInstance].isGDPRApplicable;
-    if (gdprApplies != MPBoolUnknown ) {
-        if(gdprApplies == MPBoolYes) {
+    if (gdprApplies == MPBoolUnknown) {
+        // if unknown, trying to use shared memory
+        subjToGDPR = [[NSUserDefaults standardUserDefaults] stringForKey:@"IABConsent_SubjectToGDPR"];
+        if ([subjToGDPR isEqualToString:@"1"]){
             [MobFoxSDK setGDPR:YES];
-            NSString *consentString = [[MoPub sharedInstance] canCollectPersonalInfo] ? @"1" : @"0";
-            [MobFoxSDK setGDPRConsentString:consentString];
         } else {
             [MobFoxSDK setGDPR:NO];
-            [MobFoxSDK setGDPRConsentString:@"0"];
         }
+    } else if (gdprApplies == MPBoolYes) {
+        [MobFoxSDK setGDPR:YES];
+    } else {
+        [MobFoxSDK setGDPR:NO];
     }
 }
-
 
 @end

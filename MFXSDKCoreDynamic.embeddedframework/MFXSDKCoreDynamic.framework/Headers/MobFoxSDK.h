@@ -41,7 +41,7 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 - (BOOL)isInitialized;
 
 + (void)setGDPR:(BOOL)bConsented;
-+ (void)setGDPRConsentString:(NSString *)consentString;
++ (void)setGDPRConsentString:(NSString * _Nonnull)consentString;
 
 + (NSString*)sdkVersion;
 

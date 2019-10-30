@@ -10,7 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "MFXWebView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class MFXManager;
+@class MFXUtils;
 
 @interface MFXInterstitialViewController : UIViewController <MFXWebViewAdDelegate>
 
@@ -18,7 +21,8 @@
 
 - (instancetype _Nullable )initWithUUID:(NSString * _Nonnull)uuid
                                 andINVH:(NSString * _Nonnull)invh
-                                manager:(MFXManager *)manager;
+                                manager:(MFXManager *)manager
+                                utils:(MFXUtils *)utils;
 
 - (void)setTagHTML:(nonnull NSString*)html
           response:(NSString * _Nullable)resp
@@ -39,3 +43,6 @@
 - (void)resetVCForNextLoad;
 
 @end
+
+
+NS_ASSUME_NONNULL_END
