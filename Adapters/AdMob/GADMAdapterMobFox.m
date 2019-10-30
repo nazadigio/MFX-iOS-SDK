@@ -9,6 +9,7 @@
 #import "GADMAdapterMobFox.h"
 #import "MFAdNetworkExtras.h"
 
+
 @interface GADMAdapterMobFox()
 @property (nonatomic, assign) BOOL smart;
 @end
@@ -18,7 +19,7 @@
 #pragma mark GADMAdNetworkAdapter Delegate
 
 + (NSString *)adapterVersion {
-    return @"4.0.4";
+    return [MobFoxSDK sdkVersion];
 }
 
 + (Class<GADAdNetworkExtras>)networkExtrasClass {

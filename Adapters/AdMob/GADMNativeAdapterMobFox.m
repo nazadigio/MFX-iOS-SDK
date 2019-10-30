@@ -21,7 +21,7 @@
 
 + (NSString *)adapterVersion {
     
-    return @"4.0.4";
+    return [MobFoxSDK sdkVersion];
 }
 
 + (Class<GADAdNetworkExtras>)networkExtrasClass {
