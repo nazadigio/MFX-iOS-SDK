@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MFXSDKCore/MFXSDKCore.h"
+#import <MoPubSDKFramework/MoPub.h>
 
-
-@interface ViewController : UIViewController <MFXBannerAdDelegate, MFXInterstitialAdDelegate, MFXNativeAdDelegate>
+@interface ViewController : UIViewController <MFXBannerAdDelegate, MFXInterstitialAdDelegate, MFXNativeAdDelegate, MPNativeAdDelegate>
 
 
 @end

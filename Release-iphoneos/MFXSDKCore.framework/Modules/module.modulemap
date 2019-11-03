@@ -1,6 +1,0 @@
-framework module MFXSDKCore {
-  umbrella header "MFXSDKCore.h"
-
-  export *
-  module * { export * }
-}
