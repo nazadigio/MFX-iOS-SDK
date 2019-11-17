@@ -40,8 +40,9 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 + (instancetype) sharedInstance;
 - (BOOL)isInitialized;
 
-+ (void)setGDPR:(BOOL)bConsented;
-+ (void)setGDPRConsentString:(NSString * _Nonnull)consentString;
+
++ (void)setCoppa:(BOOL)coppa;
++ (BOOL)getCoppaStatus;
 
 + (NSString*)sdkVersion;
 
@@ -109,6 +110,11 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 +(void)setNativeFloorPrice:(MFXNativeAd *)mAd withValue:(NSNumber *)floor;
 +(void)releaseNativeAd:(MFXNativeAd *)mAd;
 
+@end
+
+@interface MobFoxSDK (MFXDeprecated)
++ (void)setGDPR:(BOOL)bConsented __attribute((deprecated("Use [[NSUserDefaults standardUserDefaults] setObject:gdprAsString forKey:@\"IABConsent_SubjectToGDPR\"] instead.")));
++ (void)setGDPRConsentString:(NSString * _Nonnull)consentString __attribute((deprecated("Use [[NSUserDefaults standardUserDefaults] setObject:consentString forKey:@\"IABConsent_ConsentString\"] instead.")));
 @end
 
 NS_ASSUME_NONNULL_END
