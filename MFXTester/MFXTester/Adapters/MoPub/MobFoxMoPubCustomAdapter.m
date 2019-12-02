@@ -58,12 +58,11 @@
      self.localProperties[kVASTVideoKey] = ad.vastString;  */
 }
 
-/*
- 
- - (NSURL *)defaultActionURL {
- return nil;
- }
- 
+- (NSURL *)defaultActionURL {
+    return nil;
+}
+
+ /*
  - (void)willAttachToView:(UIView *)view {
  if (!view) {
  return;

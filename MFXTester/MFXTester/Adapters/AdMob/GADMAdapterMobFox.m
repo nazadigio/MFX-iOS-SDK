@@ -177,18 +177,14 @@
         [MobFoxSDK setLongitude:[NSNumber numberWithFloat:self.connector.userLongitude]];
     }
     
+    NSNumber *coppa = self.connector.childDirectedTreatment;
+    if (coppa != nil) {
+        [MobFoxSDK setCoppa:[coppa boolValue]];
+    }
+    
     MFAdNetworkExtras *extras = [self.connector networkExtras];
     if (extras!=nil)
     {
-        if (extras.subject_to_gdpr!=nil)
-        {
-            [MobFoxSDK setGDPR:[extras.subject_to_gdpr boolValue]];
-        }
-        if (extras.gdpr_consent!=nil)
-        {
-            [MobFoxSDK setGDPRConsentString:extras.gdpr_consent];
-        }
-        
         if (extras.demo_gender!=nil)
         {
             [MobFoxSDK setDemoGender:extras.demo_gender];

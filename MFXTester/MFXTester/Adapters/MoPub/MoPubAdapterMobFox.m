@@ -39,7 +39,6 @@
     }
     
     [MobFoxSDK setBannerRefresh:self.ad withSeconds:0];
-    [MobFoxMoPubUtils gdprHandler];
     [MobFoxSDK loadBanner:self.ad];
 }
 

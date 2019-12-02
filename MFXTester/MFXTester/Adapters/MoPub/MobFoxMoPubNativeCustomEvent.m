@@ -46,7 +46,6 @@
     
     NSLog(@"MoPub >> MobFox >> request: %@",[info description]);
     
-    [MobFoxMoPubUtils gdprHandler];
     [MobFoxSDK loadNativeAd:self.ad];
 }
 
