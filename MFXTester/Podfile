@@ -7,7 +7,8 @@ target 'MFXTester' do
 
   # Pods for MFXTester
   pod 'MFXSDK', :path => '../'
-#  pod 'MFXSDK', :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :branch => 'rc/4.0.10'
+#pod 'MFXSDK', :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :branch => 'rc/4.0.10'
+#pod 'MFXSDK', '4.1.0'
 
   target 'MFXTesterTests' do
     inherit! :search_paths

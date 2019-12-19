@@ -47,7 +47,7 @@
 		B7A1629022B63DC100B6ECC8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */; };
 		B7A1629222B63DC900B6ECC8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1629122B63DC900B6ECC8 /* libz.tbd */; };
 		D7DC5AB6C8ECFF448EC71B55 /* Pods_MFXTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD7D02F717EB468FCD009BE /* Pods_MFXTesterTests.framework */; };
-		F5289D9723AB98F9001685D7 /* RewardedAdmobAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5289D9423AB98F9001685D7 /* RewardedAdmobAdapter.m */; };
+		F5289D9723AB98F9001685D7 /* GADMMobFoxMediationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5289D9423AB98F9001685D7 /* GADMMobFoxMediationAdapter.m */; };
 		F5289D9823AB98F9001685D7 /* GADMMobFoxRewardedAd.m in Sources */ = {isa = PBXBuildFile; fileRef = F5289D9523AB98F9001685D7 /* GADMMobFoxRewardedAd.m */; };
 		F5289D9B23AB9915001685D7 /* MobFoxMoPubRewardedVideoCustomEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = F5289D9923AB9915001685D7 /* MobFoxMoPubRewardedVideoCustomEvent.m */; };
 		F5289D9D23AB999B001685D7 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F5289D9C23AB999B001685D7 /* settings.png */; };
@@ -149,8 +149,8 @@
 		B7A1628F22B63DC100B6ECC8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B7A1629122B63DC900B6ECC8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C2BC62E2C32A5A114576A459 /* Pods_MFXTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MFXTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5289D9323AB98F8001685D7 /* RewardedAdmobAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardedAdmobAdapter.h; sourceTree = "<group>"; };
-		F5289D9423AB98F9001685D7 /* RewardedAdmobAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardedAdmobAdapter.m; sourceTree = "<group>"; };
+		F5289D9323AB98F8001685D7 /* GADMMobFoxMediationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMMobFoxMediationAdapter.h; sourceTree = "<group>"; };
+		F5289D9423AB98F9001685D7 /* GADMMobFoxMediationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMMobFoxMediationAdapter.m; sourceTree = "<group>"; };
 		F5289D9523AB98F9001685D7 /* GADMMobFoxRewardedAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADMMobFoxRewardedAd.m; sourceTree = "<group>"; };
 		F5289D9623AB98F9001685D7 /* GADMMobFoxRewardedAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMMobFoxRewardedAd.h; sourceTree = "<group>"; };
 		F5289D9923AB9915001685D7 /* MobFoxMoPubRewardedVideoCustomEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobFoxMoPubRewardedVideoCustomEvent.m; sourceTree = "<group>"; };
@@ -308,8 +308,8 @@
 				B73E52782365CF6F008322FA /* GADMAdapterMobFox.m */,
 				B73E527F2365CF6F008322FA /* MFAdNetworkExtras.h */,
 				B73E527B2365CF6F008322FA /* MFAdNetworkExtras.m */,
-				F5289D9323AB98F8001685D7 /* RewardedAdmobAdapter.h */,
-				F5289D9423AB98F9001685D7 /* RewardedAdmobAdapter.m */,
+				F5289D9323AB98F8001685D7 /* GADMMobFoxMediationAdapter.h */,
+				F5289D9423AB98F9001685D7 /* GADMMobFoxMediationAdapter.m */,
 				F5289D9623AB98F9001685D7 /* GADMMobFoxRewardedAd.h */,
 				F5289D9523AB98F9001685D7 /* GADMMobFoxRewardedAd.m */,
 				B73E527E2365CF6F008322FA /* GADMNativeAdapterMobFox.h */,
@@ -515,7 +515,7 @@
 				B73E52942365CF6F008322FA /* MFMediatedNativeContentAd.m in Sources */,
 				B73E52962365CF6F008322FA /* MobFoxMoPubCustomAdapter.m in Sources */,
 				B72795AC2270815200FA24C2 /* ViewController.m in Sources */,
-				F5289D9723AB98F9001685D7 /* RewardedAdmobAdapter.m in Sources */,
+				F5289D9723AB98F9001685D7 /* GADMMobFoxMediationAdapter.m in Sources */,
 				B73E52982365CF70008322FA /* MobFoxAdapterConfiguration.m in Sources */,
 				B72795B72270815300FA24C2 /* main.m in Sources */,
 				B73E529C2365CF70008322FA /* MoPubInterstitialAdapterMobFox.m in Sources */,
