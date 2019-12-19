@@ -37,6 +37,7 @@
         }
     }
     
+    [MobFoxMoPubUtils gdprHandler];
     [MobFoxSDK loadInterstitial:self.mobFoxInterAd];
 }
 

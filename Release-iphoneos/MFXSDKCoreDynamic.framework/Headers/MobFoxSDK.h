@@ -32,10 +32,7 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Outside;
 FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 
 
-
-///////////////////////////
-/*          SDK          */
-///////////////////////////
+#pragma mark - SDK -
 
 + (instancetype) sharedInstance;
 - (BOOL)isInitialized;
@@ -53,62 +50,57 @@ FOUNDATION_EXPORT NSString *const kNativeAdPlacementType_Recommendation;
 + (void)setLongitude:(NSNumber *)longitude;
 + (void)setLatitude:(NSNumber *)latitude;
 
-///////////////////////////
-/*      BANNER          */
-//////////////////////////
+#pragma mark - BANNER
 
-+(MFXBannerAd *)createBanner:(NSString *)invh
-                       width:(NSInteger)width
-                      height:(NSInteger)height
-                withDelegate:(id <MFXBannerAdDelegate>)delegate;
-+(void)loadBanner:(MFXBannerAd *)mAd;
-+(void)addBanner:(MFXBannerAd*)mAd toView:(UIView*)targetView atRect:(CGRect)rc;
-+(void)addBanner:(MFXBannerAd*)mAd toView:(UIView*)targetView centeredAt:(CGPoint)pt;
-+(UIView*)getBannerAsView:(MFXBannerAd *)mAd;
-+(void)setBannerRefresh:(MFXBannerAd *)mAd withSeconds:(NSInteger)intervalInSeconds;
-+(void)releaseBanner:(MFXBannerAd *)mAd;
-+(void)setBannerFloorPrice:(MFXBannerAd *)mAd withValue:(NSNumber *)floor;
++ (MFXBannerAd *)createBanner:(NSString *)invh
+                        width:(NSInteger)width
+                       height:(NSInteger)height
+                 withDelegate:(id <MFXBannerAdDelegate>)delegate;
++ (void)loadBanner:(MFXBannerAd *)mAd;
++ (void)addBanner:(MFXBannerAd*)mAd toView:(UIView*)targetView atRect:(CGRect)rc;
++ (void)addBanner:(MFXBannerAd*)mAd toView:(UIView*)targetView centeredAt:(CGPoint)pt;
++ (UIView*)getBannerAsView:(MFXBannerAd *)mAd;
++ (void)setBannerRefresh:(MFXBannerAd *)mAd withSeconds:(NSInteger)intervalInSeconds;
++ (void)releaseBanner:(MFXBannerAd *)mAd;
++ (void)setBannerFloorPrice:(MFXBannerAd *)mAd withValue:(NSNumber *)floor;
 
-///////////////////////////
-/*      INTERSTITIAL     */
-//////////////////////////
-+(MFXInterstitialAd *)createInterstitial:(NSString *)invh
-                   withRootViewContoller:(UIViewController* _Nullable)root
-                            withDelegate:(id <MFXInterstitialAdDelegate>)delegate;
-+(void)loadInterstitial:(MFXInterstitialAd *)mAd;
-+(void)showInterstitial:(MFXInterstitialAd *)mAd;
-+(void)showInterstitial:(MFXInterstitialAd *)mAd aboveViewController:(UIViewController*)parentVC;
-+(void)releaseInterstitial:(MFXInterstitialAd *)mAd;
-+(void)setInterstitialFloorPrice:(MFXInterstitialAd *)mAd withValue:(NSNumber *)floor;
+#pragma mark - INTERSTITIAL
 
-///////////////////////////
-/*      NATIVE_AD       */
-//////////////////////////
++ (MFXInterstitialAd *)createInterstitial:(NSString *)invh
+                    withRootViewContoller:(UIViewController* _Nullable)root
+                             withDelegate:(id <MFXInterstitialAdDelegate>)delegate;
++ (void)loadInterstitial:(MFXInterstitialAd *)mAd;
++ (void)showInterstitial:(MFXInterstitialAd *)mAd;
++ (void)showInterstitial:(MFXInterstitialAd *)mAd aboveViewController:(UIViewController*)parentVC;
++ (void)releaseInterstitial:(MFXInterstitialAd *)mAd;
++ (void)setInterstitialFloorPrice:(MFXInterstitialAd *)mAd withValue:(NSNumber *)floor;
 
-+(MFXNativeAd *)createNativeAd:(NSString *)invh
-                  withDelegate:(id <MFXNativeAdDelegate>)delegate;
+#pragma mark - NATIVE AD
 
-+(void)loadNativeAd:(MFXNativeAd *)mAd;
++ (MFXNativeAd *)createNativeAd:(NSString *)invh
+                   withDelegate:(id <MFXNativeAdDelegate>)delegate;
 
-+(void)loadNativeAdImages:(MFXNativeAd *)mAd;
++ (void)loadNativeAd:(MFXNativeAd *)mAd;
 
-+(void)registerNativeAdForInteraction:(MFXNativeAd *)mAd onView:(UIView*)view;
-+(void)callToActionClicked:(MFXNativeAd *)mAd;
++ (void)loadNativeAdImages:(MFXNativeAd *)mAd;
 
-+(NSString*)getNativeAdLink:(MFXNativeAd *)mAd;
-+(NSDictionary*)getNativeAdTexts:(MFXNativeAd *)mAd;
-+(NSDictionary*)getNativeAdImageUrls:(MFXNativeAd *)mAd;
-+(NSDictionary*)getNativeAdImages:(MFXNativeAd *)mAd;
++ (void)registerNativeAdForInteraction:(MFXNativeAd *)mAd onView:(UIView*)view;
++ (void)callToActionClicked:(MFXNativeAd *)mAd;
 
-+(void)setNativeAdContext:(MFXNativeAd *)mAd withContext:(NSString*)context;
-+(void)setNativeAdPlacementType:(MFXNativeAd *)mAd withPlacementType:(NSString*)placementType;
++ (NSString*)getNativeAdLink:(MFXNativeAd *)mAd;
++ (NSDictionary*)getNativeAdTexts:(MFXNativeAd *)mAd;
++ (NSDictionary*)getNativeAdImageUrls:(MFXNativeAd *)mAd;
++ (NSDictionary*)getNativeAdImages:(MFXNativeAd *)mAd;
 
-+(void)setNativeAdIconImage:(MFXNativeAd *)mAd isRequired:(BOOL)required withSize:(NSInteger)size;
-+(void)setNativeAdMainImage:(MFXNativeAd *)mAd isRequired:(BOOL)required withSize:(CGSize)size;
-+(void)setNativeAdTitle:(MFXNativeAd *)mAd isRequired:(BOOL)required withMaxLen:(NSInteger)maxLen;
-+(void)setNativeAdDesc:(MFXNativeAd *)mAd isRequired:(BOOL)required withMaxLen:(NSInteger)maxLen;
-+(void)setNativeFloorPrice:(MFXNativeAd *)mAd withValue:(NSNumber *)floor;
-+(void)releaseNativeAd:(MFXNativeAd *)mAd;
++ (void)setNativeAdContext:(MFXNativeAd *)mAd withContext:(NSString*)context;
++ (void)setNativeAdPlacementType:(MFXNativeAd *)mAd withPlacementType:(NSString*)placementType;
+
++ (void)setNativeAdIconImage:(MFXNativeAd *)mAd isRequired:(BOOL)required withSize:(NSInteger)size;
++ (void)setNativeAdMainImage:(MFXNativeAd *)mAd isRequired:(BOOL)required withSize:(CGSize)size;
++ (void)setNativeAdTitle:(MFXNativeAd *)mAd isRequired:(BOOL)required withMaxLen:(NSInteger)maxLen;
++ (void)setNativeAdDesc:(MFXNativeAd *)mAd isRequired:(BOOL)required withMaxLen:(NSInteger)maxLen;
++ (void)setNativeFloorPrice:(MFXNativeAd *)mAd withValue:(NSNumber *)floor;
++ (void)releaseNativeAd:(MFXNativeAd *)mAd;
 
 @end
 

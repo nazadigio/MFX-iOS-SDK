@@ -6,11 +6,15 @@
 //  Copyright © 2019 MobFox Mobile Advertising GmbH. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MFXFullScreenAd.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MFXInterstitialAd;
+@interface MFXInterstitialAd : MFXFullScreenAd
+
+@property (nonatomic, assign) BOOL isRewarded;
+
+@end
 
 @protocol MFXInterstitialAdDelegate <NSObject>
 
@@ -25,13 +29,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface MFXInterstitialAd : NSObject 
+#pragma mark - Deprecated
 
-- (void)loadInterstitial;
-- (void)showInterstitial;
-- (void)showInterstitialAboveViewController:(UIViewController *)parentVC;
-- (void)releaseInterstitial;
-- (void)setInterstitialFloorPrice:(NSNumber *)floorPrice;
+@interface MFXInterstitialAd (Deprecated)
+
+- (void)loadInterstitial __deprecated_msg("Use [MobFoxSDK loadInterstitial:] instead");
+- (void)showInterstitial __deprecated_msg("Use [MobFoxSDK showInterstitial:] instead");
+- (void)showInterstitialAboveViewController:(UIViewController *)parentVC __deprecated_msg("Use [MobFoxSDK showInterstitial:aboveViewController:] instead");
+- (void)releaseInterstitial __deprecated_msg("Use [MobFoxSDK releaseInterstitial:] instead");
+- (void)setInterstitialFloorPrice:(NSNumber *)floorPrice __deprecated_msg("Use [MobFoxSDK setInterstitialFloorPrice:] instead");
 
 @end
 

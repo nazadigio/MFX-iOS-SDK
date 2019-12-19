@@ -22,13 +22,21 @@
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>GADIsAdManagerApp</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<false/>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location usage description - always</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Location usage description - default</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location usage description - when in use</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

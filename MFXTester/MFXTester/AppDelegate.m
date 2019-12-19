@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <MFXSDKCore/MFXSDKCore.h>
 #import <MoPubSDKFramework/MoPub.h>
+#import <UserNotifications/UserNotifications.h>
 
 #define MOPUB_HASH_ADAPTER_BANNER @"234dd5a1b1bf4a5f9ab50431f9615784"
 
@@ -16,12 +17,18 @@
 
 @interface AppDelegate ()
 
+//  @property (nonatomic, strong) UNUserNotificationCenter *center;
+
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate 
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+  //  [_center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        
+  //  }];
     // Override point for customization after application launch.
     [MobFoxSDK sharedInstance];
     [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
@@ -60,6 +67,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 
 @end

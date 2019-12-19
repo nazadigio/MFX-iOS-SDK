@@ -48,32 +48,34 @@
 		0401CE5B92062D49811FEF718F03B4AF /* Pods-MFXTesterTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MFXTesterTests.modulemap"; sourceTree = "<group>"; };
 		054D6B4C211A0198CD50959E285CD437 /* Pods_MFXTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MFXTesterTests.framework; path = "Pods-MFXTesterTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		087223D185263B5D7CD1D1BC240B56D1 /* Pods_MFXTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MFXTester.framework; path = "Pods-MFXTester.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B4146BDF0879F0849B69B02F33261C /* MFXReward.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXReward.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXReward.h; sourceTree = "<group>"; };
 		1253AFC51DF66618AA5CD271AFC36679 /* Pods-MFXTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MFXTester.release.xcconfig"; sourceTree = "<group>"; };
 		17B60382B541944DD2554AD2BE0E210B /* Pods-MFXTester-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MFXTester-acknowledgements.plist"; sourceTree = "<group>"; };
 		2053BDAD8D5A7C5FD65AB4CDA6FE4D74 /* Pods-MFXTesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MFXTesterTests.debug.xcconfig"; sourceTree = "<group>"; };
-		26853F2B5C3E089A30F2BF51816FA4E1 /* MFXBannerAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXBannerAd.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXBannerAd.h; sourceTree = "<group>"; };
 		2F4A396BFC1BBDD6A495CC804CC892EC /* Pods-MFXTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MFXTester.debug.xcconfig"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		327AB18CFCC76AFDD4458259D87E20C5 /* Pods-MFXTesterTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MFXTesterTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		34E2192A29337207B368EED74BD3BF2C /* MFXInterstitialAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXInterstitialAd.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXInterstitialAd.h; sourceTree = "<group>"; };
-		3A0B8633ED03BB199E00C81D0702BC0C /* MFXSDKCore-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFXSDKCore-Bridging-Header.h"; path = "MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXSDKCore-Bridging-Header.h"; sourceTree = "<group>"; };
+		3297CCC8759501AC11B534BF72676CB8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3D47917F5555F076F23E0DA7CB03922C /* MFXSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MFXSDK.xcconfig; sourceTree = "<group>"; };
 		3D4C928E3DA4472D7679C1D8D17DB48D /* Pods-MFXTesterTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MFXTesterTests-Info.plist"; sourceTree = "<group>"; };
 		40FD4F53B73542104E91B8B069AF48FE /* Pods-MFXTesterTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MFXTesterTests-dummy.m"; sourceTree = "<group>"; };
 		41767F87E36A937FDF0D8061E4FF6990 /* Pods-MFXTesterTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MFXTesterTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4815C26739C0A63195E1DA35C8A29F86 /* MFXSDKCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXSDKCore.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXSDKCore.h; sourceTree = "<group>"; };
-		586A29F0EFD1D0BE9ED9F2EF3FD36BB2 /* MFXNativeAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXNativeAd.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXNativeAd.h; sourceTree = "<group>"; };
+		578C69256895E1C3EA4874FE354E117D /* MFXBannerAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXBannerAd.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXBannerAd.h; sourceTree = "<group>"; };
 		5DBE3989546058AED67CBE75B97BC0B5 /* Pods-MFXTester.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MFXTester.modulemap"; sourceTree = "<group>"; };
-		6ABAF049AF35BD16699EE87F61E64DD5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		6F7D62F8E9237B0B782EBBC5533120AC /* Pods-MFXTester-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MFXTester-acknowledgements.markdown"; sourceTree = "<group>"; };
-		81FCEAF86023AD78620D169CF3538C99 /* MFXSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MFXSDKCore.framework; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework; sourceTree = "<group>"; };
+		75F9D6114CD357A5F9EA26C86BF04444 /* MFXSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MFXSDKCore.framework; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework; sourceTree = "<group>"; };
+		8A4B527FCB981DFC7543AB44A6FE51C1 /* MFXSDKCore-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFXSDKCore-Bridging-Header.h"; path = "MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXSDKCore-Bridging-Header.h"; sourceTree = "<group>"; };
+		8E765D5B719734C81261E15A7069B6F9 /* MFXSDKCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXSDKCore.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXSDKCore.h; sourceTree = "<group>"; };
+		8FFABB839CA3049411BA2AACA74796FF /* MFXNativeAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXNativeAd.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXNativeAd.h; sourceTree = "<group>"; };
 		970EC136F4F03FAD1BB00951001CB5BE /* Pods-MFXTesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MFXTesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A70B0B0DAED2BFC1C4AC167A642D46AC /* MobFoxSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MobFoxSDK.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MobFoxSDK.h; sourceTree = "<group>"; };
 		B7398C2D92B1635428F8B0320D17915C /* Pods-MFXTesterTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MFXTesterTests-umbrella.h"; sourceTree = "<group>"; };
-		B7AEBF0C4AF1877F6BB4317907C58009 /* MFXSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MFXSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C749AF738CBB0ABABB24B491C746FF6A /* MFXSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MFXSDK.xcconfig; sourceTree = "<group>"; };
+		D3B71C31B8723B5634043A540CCE30B6 /* MFXInterstitialAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXInterstitialAd.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXInterstitialAd.h; sourceTree = "<group>"; };
+		D928E215ADA600DB91A66095837CD724 /* MFXSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MFXSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DDE3C27E86A9D4FF74A36972F6E7D151 /* Pods-MFXTester-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MFXTester-dummy.m"; sourceTree = "<group>"; };
+		DF1038631CB6E49086325E150827CF2F /* MobFoxSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MobFoxSDK.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MobFoxSDK.h; sourceTree = "<group>"; };
 		DFC6419636A07EC62F7ABD7714197BAC /* Pods-MFXTester-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MFXTester-umbrella.h"; sourceTree = "<group>"; };
+		EB9412899FB9D0BA773456EA65AB1513 /* MFXFullScreenAd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFXFullScreenAd.h; path = MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/MFXFullScreenAd.h; sourceTree = "<group>"; };
 		F9A3A0E415232415F1F759761E9D7308 /* Pods-MFXTester-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MFXTester-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,27 +99,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0CBDC3079636C5F6AA9399A590F486D9 /* Frameworks */ = {
+		0F84C78213FD106B59116DF5CEF22178 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				81FCEAF86023AD78620D169CF3538C99 /* MFXSDKCore.framework */,
+				3D47917F5555F076F23E0DA7CB03922C /* MFXSDK.xcconfig */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "MFXTester/Pods/Target Support Files/MFXSDK";
 			sourceTree = "<group>";
 		};
-		41A8A833008ADC1DD0532B968E2C20BE /* Development Pods */ = {
+		31B0405B43035FA0DC54870869BD3C4E /* MFXSDK */ = {
 			isa = PBXGroup;
 			children = (
-				F7374F3BF5E2932955E2D6ED99DFBB15 /* MFXSDK */,
+				578C69256895E1C3EA4874FE354E117D /* MFXBannerAd.h */,
+				EB9412899FB9D0BA773456EA65AB1513 /* MFXFullScreenAd.h */,
+				D3B71C31B8723B5634043A540CCE30B6 /* MFXInterstitialAd.h */,
+				8FFABB839CA3049411BA2AACA74796FF /* MFXNativeAd.h */,
+				10B4146BDF0879F0849B69B02F33261C /* MFXReward.h */,
+				8E765D5B719734C81261E15A7069B6F9 /* MFXSDKCore.h */,
+				8A4B527FCB981DFC7543AB44A6FE51C1 /* MFXSDKCore-Bridging-Header.h */,
+				DF1038631CB6E49086325E150827CF2F /* MobFoxSDK.h */,
+				DB4FC7E4A2B15B0B94F23B4CB3BB5955 /* Frameworks */,
+				52273128D7A87175E501FF4710B5D41E /* Pod */,
+				0F84C78213FD106B59116DF5CEF22178 /* Support Files */,
+			);
+			name = MFXSDK;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		490A8123B28FE411F770070FC117733E /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31B0405B43035FA0DC54870869BD3C4E /* MFXSDK */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		6EDA18C2C4C06F89BE611F9F0AB11A63 /* Pod */ = {
+		52273128D7A87175E501FF4710B5D41E /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				6ABAF049AF35BD16699EE87F61E64DD5 /* LICENSE */,
-				B7AEBF0C4AF1877F6BB4317907C58009 /* MFXSDK.podspec */,
+				3297CCC8759501AC11B534BF72676CB8 /* LICENSE */,
+				D928E215ADA600DB91A66095837CD724 /* MFXSDK.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
@@ -129,15 +151,6 @@
 				054D6B4C211A0198CD50959E285CD437 /* Pods_MFXTesterTests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		81FFC67293F3FD2B03ACD3E9B2534937 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C749AF738CBB0ABABB24B491C746FF6A /* MFXSDK.xcconfig */,
-			);
-			name = "Support Files";
-			path = "MFXTester/Pods/Target Support Files/MFXSDK";
 			sourceTree = "<group>";
 		};
 		A30F351CFAD843F82862D3B60B97C262 /* Pods-MFXTester */ = {
@@ -184,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				41A8A833008ADC1DD0532B968E2C20BE /* Development Pods */,
+				490A8123B28FE411F770070FC117733E /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				7FA6EF7084A1D8365F778B7F6FBB27CC /* Products */,
 				E10C0141C7DD72B3AD5D23F971DEF830 /* Targets Support Files */,
@@ -199,6 +212,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB4FC7E4A2B15B0B94F23B4CB3BB5955 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75F9D6114CD357A5F9EA26C86BF04444 /* MFXSDKCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E10C0141C7DD72B3AD5D23F971DEF830 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,23 +227,6 @@
 				BC5C162F6B562AB52E32DDD429D5B784 /* Pods-MFXTesterTests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		F7374F3BF5E2932955E2D6ED99DFBB15 /* MFXSDK */ = {
-			isa = PBXGroup;
-			children = (
-				26853F2B5C3E089A30F2BF51816FA4E1 /* MFXBannerAd.h */,
-				34E2192A29337207B368EED74BD3BF2C /* MFXInterstitialAd.h */,
-				586A29F0EFD1D0BE9ED9F2EF3FD36BB2 /* MFXNativeAd.h */,
-				4815C26739C0A63195E1DA35C8A29F86 /* MFXSDKCore.h */,
-				3A0B8633ED03BB199E00C81D0702BC0C /* MFXSDKCore-Bridging-Header.h */,
-				A70B0B0DAED2BFC1C4AC167A642D46AC /* MobFoxSDK.h */,
-				0CBDC3079636C5F6AA9399A590F486D9 /* Frameworks */,
-				6EDA18C2C4C06F89BE611F9F0AB11A63 /* Pod */,
-				81FFC67293F3FD2B03ACD3E9B2534937 /* Support Files */,
-			);
-			name = MFXSDK;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,7 +409,7 @@
 		};
 		14F7B5FBE3B58FF73BDB26406105833C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C749AF738CBB0ABABB24B491C746FF6A /* MFXSDK.xcconfig */;
+			baseConfigurationReference = 3D47917F5555F076F23E0DA7CB03922C /* MFXSDK.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -497,7 +501,7 @@
 		};
 		5635EFFC37E67BBB4C6196157E365DBF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C749AF738CBB0ABABB24B491C746FF6A /* MFXSDK.xcconfig */;
+			baseConfigurationReference = 3D47917F5555F076F23E0DA7CB03922C /* MFXSDK.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

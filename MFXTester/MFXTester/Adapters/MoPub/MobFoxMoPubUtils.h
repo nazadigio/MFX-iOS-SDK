@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MobFoxMoPubUtils : NSObject
 
++ (void)gdprHandler;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

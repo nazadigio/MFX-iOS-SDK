@@ -6,7 +6,8 @@ target 'MFXTester' do
   use_frameworks!
 
   # Pods for MFXTester
-pod 'MFXSDK', :path => '../'
+  pod 'MFXSDK', :path => '../'
+#  pod 'MFXSDK', :git => 'https://github.com/mobfox/MFX-iOS-SDK.git', :branch => 'rc/4.0.10'
 
   target 'MFXTesterTests' do
     inherit! :search_paths
