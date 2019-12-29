@@ -1,6 +1,6 @@
 {
   "name": "MFXSDK",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "summary": "MobFox's iOS SDK",
   "description": "MobFox's iOS SDK Used To Get Ads From The MobFox SSP",
   "homepage": "https://www.mobfox.com/",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/mobfox/MFX-iOS-SDK.git",
-    "tag": "4.1.0"
+    "tag": "4.1.1"
   },
   "platforms": {
     "ios": "9.0"

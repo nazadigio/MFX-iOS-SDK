@@ -1,5 +1,5 @@
 PODS:
-  - MFXSDK (4.1.0)
+  - MFXSDK (4.1.1)
 
 DEPENDENCIES:
   - MFXSDK (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MFXSDK: efa79418304e5d234168abc15925d6e8f9f3e7d3
+  MFXSDK: b6fefda2a69053663c96fa0e135a4cd0c18bc935
 
 PODFILE CHECKSUM: 1ec966c4cefbac0b48bafaaa128f72b1575cb534
 

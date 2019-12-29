@@ -8,27 +8,25 @@
 
 #import "MobFoxMoPubCustomAdapter.h"
 
-
-
-
 @interface MobFoxMoPubCustomAdapter () <MPNativeAdAdapter>
-
-
 
 @property (nonatomic, strong) NSDictionary *adData;
 
 @end
 
-
 @implementation MobFoxMoPubCustomAdapter
 
-- (instancetype)initWithAd: (NSDictionary *)ad{
+- (instancetype)initWithAd:(NSDictionary *)ad {
     self = [super init];
     if (self) {
         self.localProperties = [NSMutableDictionary new];
         self.adData = ad;
     }
     return self;
+}
+
+- (NSURL *)defaultActionURL {
+    return [self.localProperties objectForKey:kDefaultActionURLKey];
 }
 
 - (void)setAdData:(NSDictionary *)ad {
@@ -42,24 +40,18 @@
     if ([ad objectForKey:@"url"]) [self.localProperties setObject:[ad objectForKey:@"url"] forKey:kDefaultActionURLKey];
     
     /*
-     
-     
      [self UpdateNativeText:_lblRating    withValue:[ad objectForKey:@"rating"]];
      [self UpdateNativeText:_lblSponsored withValue:[ad objectForKey:@"sponsored"]];
-     
      
      [self UpdateNativeImage:_imgIcon withValue:[ad objectForKey:@"icon"]];
      [self UpdateNativeImage:_imgMain withValue:[ad objectForKey:@"main"]];
      }
-     
-     
      */
     /* The next feature is native video, and was not developed in mobfox yet.
      self.localProperties[kVASTVideoKey] = ad.vastString;  */
 }
 
 /*
- 
  - (NSURL *)defaultActionURL {
  return nil;
  }
@@ -131,15 +123,13 @@
  }
  }
  */
-- (void)displayContentForURL:(NSURL *)URL rootViewController:(UIViewController *)controller{
-    
+
+- (void)displayContentForURL:(NSURL *)URL rootViewController:(UIViewController *)controller {
     // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.localProperties objectForKey:kDefaultActionURLKey]]];
 }
-
 
 - (NSDictionary *)properties {
     return self.localProperties;
 }
-
 
 @end
