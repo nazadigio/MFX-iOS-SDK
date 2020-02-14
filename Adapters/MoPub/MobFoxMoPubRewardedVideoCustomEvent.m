@@ -17,6 +17,10 @@
 
 @implementation MobFoxMoPubRewardedVideoCustomEvent
 
+- (void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup {
+	[self requestRewardedVideoWithCustomEventInfo:info];
+}
+
 - (void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info {
     NSString *adUnitID = info[@"invh"];
     if ([adUnitID isKindOfClass:[NSString class]]) {
