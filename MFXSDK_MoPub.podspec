@@ -39,10 +39,9 @@ puts wd
   s.static_framework = true
   s.requires_arc = true
 
-  s.source_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h'
   s.ios.libraries = 'z'
 
-  # s.source_files = 'Adapters/MoPub/**/*.{h,m}'
+  s.source_files = 'Adapters/MoPub/**/*.{h,m}'
   s.ios.source_files = 'Adapters/MoPub/**/*.{h,m}'
 
 
@@ -51,16 +50,14 @@ puts wd
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
   # }
 
-  s.frameworks = 'MFXSDKCore' ,'AdSupport'
+  s.frameworks = 'AdSupport'
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
 
 
-   s.public_header_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h', 'Adapters/MoPub/*.h'
-  s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
-   s.preserve_paths = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
-  # s.ios.frameworks = 'CoreData', 'SystemConfiguration'
+   s.public_header_files = 'Adapters/MoPub/*.h'
 
   #s.dependency 'Google-Mobile-Ads-SDK', '= 7.47.0'
   s.dependency 'mopub-ios-sdk', '~> 5.5'
+  s.dependency 'MFXSDK'
 end
