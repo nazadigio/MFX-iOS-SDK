@@ -7,6 +7,8 @@
 #import <MoPub/MoPub.h>
 #elif __has_include(<MoPubSDKFramework/MoPub.h>)
 #import <MoPubSDKFramework/MoPub.h>
+#elif __has_include(<MoPub.h>)
+#import <MoPub.h>
 #else
 #import "MPInterstitialCustomEvent.h"
 #endif
@@ -16,6 +18,8 @@
 @property (strong, nonatomic) MFXInterstitialAd* mobFoxInterAd;
 
 - (void)requestInterstitialWithCustomEventInfo:(NSDictionary *)info;
+
+- (void)requestInterstitialWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup;
 
 - (void)showInterstitialFromRootViewController:(UIViewController *)rootViewController;
 

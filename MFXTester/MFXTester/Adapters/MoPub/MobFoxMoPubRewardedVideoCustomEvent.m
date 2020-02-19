@@ -17,13 +17,19 @@
 
 @implementation MobFoxMoPubRewardedVideoCustomEvent
 
+- (void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup {
+	[self requestRewardedVideoWithCustomEventInfo:info];
+}
+
 - (void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info {
-    NSString *adUnitID = info[@"invh"];
-    if ([adUnitID isKindOfClass:[NSString class]]) {
-        self.rewardedAd = [MobFoxSDK createInterstitial:adUnitID withRootViewContoller:nil withDelegate:self];
-        self.rewardedAd.isRewarded = YES;
-        [MobFoxSDK loadInterstitial:self.rewardedAd];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *adUnitID = info[@"invh"];
+        if ([adUnitID isKindOfClass:[NSString class]]) {
+            self.rewardedAd = [MobFoxSDK createInterstitial:adUnitID withRootViewContoller:nil withDelegate:self];
+            self.rewardedAd.isRewarded = YES;
+            [MobFoxSDK loadInterstitial:self.rewardedAd];
+        }
+    });
 }
 
 - (BOOL)hasAdAvailable {

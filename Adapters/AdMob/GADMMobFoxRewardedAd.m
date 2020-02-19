@@ -20,11 +20,13 @@
 
 - (void)loadRewardedAdForAdConfiguration:(GADMediationRewardedAdConfiguration *)adConfiguration
                        completionHandler:(GADMediationRewardedLoadCompletionHandler)completionHandler {
-    self.completionHandler = completionHandler;
-    NSString *adUnitID = [adConfiguration credentials].settings[@"parameter"];
-    self.rewardedAd = [MobFoxSDK createInterstitial:adUnitID withRootViewContoller:nil withDelegate:self];
-    self.rewardedAd.isRewarded = YES;
-    [MobFoxSDK loadInterstitial:self.rewardedAd];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.completionHandler = completionHandler;
+        NSString *adUnitID = [adConfiguration credentials].settings[@"parameter"];
+        self.rewardedAd = [MobFoxSDK createInterstitial:adUnitID withRootViewContoller:nil withDelegate:self];
+        self.rewardedAd.isRewarded = YES;
+        [MobFoxSDK loadInterstitial:self.rewardedAd];
+    });
 }
 
 - (void)presentFromViewController:(nonnull UIViewController *)viewController {

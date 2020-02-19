@@ -12,12 +12,14 @@
 
 @implementation MoPubAdapterMobFox
 
+- (void)requestAdWithSize:(CGSize)size customEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup {
+	[self requestAdWithSize:size customEventInfo:info];
+}
 
 - (void)requestAdWithSize:(CGSize)size customEventInfo:(NSDictionary *)info{
-    if(self.ad){
+    if (self.ad) {
         [MobFoxSDK releaseBanner:self.ad];
     }
-  //  NSLog(@"MoPub >> MobFox >> invh: %@",[info valueForKey:@"invh"]);
     NSLog(@"MoPub >> MobFox >> custom event data: %@",[info description]);
     
     self.bannerAdRect = CGRectMake(0,0, size.width, size.height);
@@ -26,7 +28,7 @@
                                height:size.height
                          withDelegate:self];
   
-    if(self.localExtras){
+    if (self.localExtras) {
         //Demographics params should be set in you viewcontoller, under <<MPAdView object>>.localExtras
         NSString *demo_age = self.localExtras[@"demo_age"];
         if(demo_age){
@@ -43,8 +45,7 @@
     [MobFoxSDK loadBanner:self.ad];
 }
 
-
-- (UIViewController *) topViewController {
+- (UIViewController *)topViewController {
     UIViewController *baseVC = UIApplication.sharedApplication.keyWindow.rootViewController;
     if ([baseVC isKindOfClass:[UINavigationController class]]) {
         return ((UINavigationController *)baseVC).visibleViewController;
@@ -65,8 +66,7 @@
 
 #pragma mark MobFox Ad Delegate
 
-- (void)bannerAdLoaded:(MFXBannerAd *)banner
-{
+- (void)bannerAdLoaded:(MFXBannerAd *)banner {
     NSLog(@"MoPub >> MobFox >> ad loaded");
     UIViewController *vc = [self topViewController];
     UIView* bannerView = [MobFoxSDK getBannerAsView:banner];
@@ -78,8 +78,7 @@
     [self.delegate bannerCustomEvent:self didLoadAd:bannerView];
 }
 
-- (void)bannerAdLoadFailed:(MFXBannerAd * _Nullable)banner withError:(NSString*)error
-{
+- (void)bannerAdLoadFailed:(MFXBannerAd * _Nullable)banner withError:(NSString*)error {
     NSLog(@"MoPub >> MobFox >> error : %@",[error description]);
     
     NSString *domain = @"com.mobfox.mfxsdkcore.ErrorDomain";
@@ -95,29 +94,22 @@
     [self.delegate bannerCustomEvent:self didFailToLoadAdWithError:resError];
 }
 
-- (void)bannerAdShown:(MFXBannerAd *)banner
-{
+- (void)bannerAdShown:(MFXBannerAd *)banner {
+    
 }
 
-- (void)bannerAdClicked:(MFXBannerAd *)banner
-{
+- (void)bannerAdClicked:(MFXBannerAd *)banner {
     MPLogAdEvent([MPLogEvent adTappedForAdapter:NSStringFromClass(self.class)], _adUnit);
     [self.delegate trackClick];
     [self.delegate bannerCustomEventWillLeaveApplication:self];
 }
 
-- (void)bannerAdFinished:(MFXBannerAd *)banner
-{
+- (void)bannerAdFinished:(MFXBannerAd *)banner {
     [self.delegate bannerCustomEventDidFinishAction:self];
 }
 
-- (void)bannerAdClosed:(MFXBannerAd *)banner
-{
+- (void)bannerAdClosed:(MFXBannerAd *)banner {
     
 }
-
-//===============================================================
-
-
 
 @end

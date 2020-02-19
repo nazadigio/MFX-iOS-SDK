@@ -11,6 +11,8 @@
 #import <MoPub/MoPub.h>
 #elif __has_include(<MoPubSDKFramework/MoPub.h>)
 #import <MoPubSDKFramework/MoPub.h>
+#elif __has_include(<MoPub.h>)
+#import <MoPub.h>
 #else
 #import "MPNativeCustomEvent.h"
 #endif
@@ -18,6 +20,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MobFoxMoPubRewardedVideoCustomEvent : MPRewardedVideoCustomEvent
+
+- (void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info;
+
+- (void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup;
 
 @end
 

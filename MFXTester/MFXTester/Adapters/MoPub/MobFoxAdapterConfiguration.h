@@ -11,6 +11,8 @@
 #import <MoPub/MoPub.h>
 #elif __has_include(<MoPubSDKFramework/MoPub.h>)
 #import <MoPubSDKFramework/MoPub.h>
+#elif __has_include(<MoPub.h>)
+#import <MoPub.h>
 #else
 #import "MPBaseAdapterConfiguration.h"
 #endif
@@ -24,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString * biddingToken;
 @property (nonatomic, copy, readonly) NSString * moPubNetworkName;
 @property (nonatomic, copy, readonly) NSString * networkSdkVersion;
+
+- (void)initializeNetworkWithConfiguration:(NSDictionary<NSString *, id> * _Nullable)configuration
+                                  complete:(void(^ _Nullable)(NSError * _Nullable))complete;
 
 @end
 

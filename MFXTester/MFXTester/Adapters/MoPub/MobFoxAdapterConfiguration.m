@@ -10,31 +10,29 @@
 
 @implementation MobFoxAdapterConfiguration
 
-    
 - (NSString *)adapterVersion {
-    
     return [MobFoxSDK sdkVersion];
 }
     
-- (NSString *) biddingToken{
+- (NSString *) biddingToken {
     return nil;
 }
     
-- (NSString *) moPubNetworkName{
+- (NSString *) moPubNetworkName {
     return @"mobfox";
 }
 
 - (NSString *)networkSdkVersion {
-    
-       return [MobFoxSDK sdkVersion];
+    return [MobFoxSDK sdkVersion];
 }
     
-- (void)initializeNetworkWithConfiguration:(NSDictionary<NSString *, id> * _Nullable)configuration complete:(void(^ _Nullable)(NSError * _Nullable))complete{
-    // MobFox SDK does not need any initialization at this point. 
-    if (complete !=nil)
-    complete(nil);
-    
-    
+- (void)initializeNetworkWithConfiguration:(NSDictionary<NSString *, id> * _Nullable)configuration
+                                  complete:(void(^ _Nullable)(NSError * _Nullable))complete
+{
+    [MobFoxSDK sharedInstance];
+    if (complete != nil) {
+        complete(nil);
+    }
 }
     
 @end

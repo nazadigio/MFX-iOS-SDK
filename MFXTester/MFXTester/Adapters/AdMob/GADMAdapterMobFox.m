@@ -34,12 +34,11 @@
 }
 
 - (void)getBannerWithSize:(GADAdSize)adSize {
-    
     self.smart = NO;
     NSLog(@"MobFox >> GADMAdapterMobFox >> Got Ad Request");
     
     NSString *invh = [[self.connector credentials] objectForKey:@"pubid"];
-
+    
     //The adapter should fail immediately if the adSize is not supported
     if (GADAdSizeEqualToSize(adSize, kGADAdSizeBanner) ||
         GADAdSizeEqualToSize(adSize, kGADAdSizeMediumRectangle) ||
@@ -72,7 +71,7 @@
             width = 728.0f;
             height = 90.0f;
         }
-
+        
         
         self.banner = [MobFoxSDK createBanner:invh
                                         width:width
@@ -87,42 +86,43 @@
             
             [MobFoxSDK loadBanner:self.banner];
         }
-
+        
         self.smart = YES;
         return;
     }
-            
+    
     NSString *errorDesc =
     [NSString stringWithFormat:@"Invalid ad type %@.",NSStringFromGADAdSize(adSize)];
     NSLog(@"MobFox >> GADAdapterMobFox: %@",errorDesc);
-            
+    
     NSDictionary *errorInfo = [NSDictionary dictionaryWithObjectsAndKeys:errorDesc, NSLocalizedDescriptionKey, nil];
     NSError *error = [NSError errorWithDomain:kGADErrorDomain
-                            code:kGADErrorMediationInvalidAdSize
-                            userInfo:errorInfo];
+                                         code:kGADErrorMediationInvalidAdSize
+                                     userInfo:errorInfo];
     [self.connector adapter:self didFailAd:error];
 }
 
 - (void)getInterstitial {
-    
-    NSLog(@"MobFox >> GADMAdapterMobFox >> Got Interstitial Ad Request");
-
-    NSString *invh = [[self.connector credentials] objectForKey:@"pubid"];
-    
-    //NSNumber* childDirectedTreatment = self.connector.childDirectedTreatment;
-    //NSNumber* underAgeOfConsent      = self.connector.underAgeOfConsent;
-    
-    self.interstitial = [MobFoxSDK createInterstitial:invh
-                                withRootViewContoller:nil
-                                         withDelegate:self];
-    
-    if (self.interstitial!=nil)
-    {
-        [self SetExtraGlobalParams];
-        [self SetExtraInterstitialParams];
-
-        [MobFoxSDK loadInterstitial:self.interstitial];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"MobFox >> GADMAdapterMobFox >> Got Interstitial Ad Request");
+        
+        NSString *invh = [[self.connector credentials] objectForKey:@"pubid"];
+        
+        //NSNumber* childDirectedTreatment = self.connector.childDirectedTreatment;
+        //NSNumber* underAgeOfConsent      = self.connector.underAgeOfConsent;
+        
+        self.interstitial = [MobFoxSDK createInterstitial:invh
+                                    withRootViewContoller:nil
+                                             withDelegate:self];
+        
+        if (self.interstitial!=nil)
+        {
+            [self SetExtraGlobalParams];
+            [self SetExtraInterstitialParams];
+            
+            [MobFoxSDK loadInterstitial:self.interstitial];
+        }
+    });
 }
 
 - (void)presentInterstitialFromRootViewController:(UIViewController *)rootViewController

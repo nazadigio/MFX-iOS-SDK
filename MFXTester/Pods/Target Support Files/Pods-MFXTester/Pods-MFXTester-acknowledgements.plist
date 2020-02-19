@@ -214,12 +214,22 @@
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
-   limitations under the License.
+   limitations under the License. 
 </string>
 			<key>License</key>
 			<string>MIT</string>
 			<key>Title</key>
 			<string>MFXSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The MoPub SDK License can be found at http://www.mopub.com/legal/sdk-license-agreement/</string>
+			<key>License</key>
+			<string>New BSD</string>
+			<key>Title</key>
+			<string>mopub-ios-sdk</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

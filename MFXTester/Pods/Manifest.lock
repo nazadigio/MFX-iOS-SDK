@@ -1,16 +1,36 @@
 PODS:
-  - MFXSDK (4.1.1)
+  - MFXSDK (4.1.4)
+  - mopub-ios-sdk (5.11.0):
+    - mopub-ios-sdk/MoPubSDK (= 5.11.0)
+  - mopub-ios-sdk/Avid (5.11.0):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/Core (5.11.0)
+  - mopub-ios-sdk/Moat (5.11.0):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/MoPubSDK (5.11.0):
+    - mopub-ios-sdk/Avid
+    - mopub-ios-sdk/Core
+    - mopub-ios-sdk/Moat
+    - mopub-ios-sdk/NativeAds
+  - mopub-ios-sdk/NativeAds (5.11.0):
+    - mopub-ios-sdk/Core
 
 DEPENDENCIES:
   - MFXSDK (from `../`)
+  - mopub-ios-sdk (~> 5.9)
+
+SPEC REPOS:
+  trunk:
+    - mopub-ios-sdk
 
 EXTERNAL SOURCES:
   MFXSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MFXSDK: b6fefda2a69053663c96fa0e135a4cd0c18bc935
+  MFXSDK: ffd8e4aa173192f6f1285fa06e8d9c2744986d20
+  mopub-ios-sdk: 292b8e9a55a2e72a34afc04ec01e85486af46240
 
-PODFILE CHECKSUM: 1ec966c4cefbac0b48bafaaa128f72b1575cb534
+PODFILE CHECKSUM: 8296655a8b76a2a79af42834467fbb8cb7340ba9
 
 COCOAPODS: 1.8.4

@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pausePlay;
 - (void)resumePlay;
 
+-(UIView*) getInterAsView;
+
 - (NSString * _Nullable)getUUID;
 - (NSString * _Nullable)getINVH;
 

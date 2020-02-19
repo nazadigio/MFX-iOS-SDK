@@ -106,7 +106,7 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
             break;
         case ADAPTER_TYPE_MOPUB:
             _btnBannerSmall.enabled =       YES;
-            _btnBannerLarge.enabled =       NO;
+            _btnBannerLarge.enabled =       YES;
             _btnBannerVideo.enabled =       NO;
             _btnInterstitial.enabled =      YES;
             _btnInterstitialVideo.enabled = YES;
@@ -533,37 +533,37 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
 #define MOPUB_HASH_ADAPTER_REWARDED @"e3d4c8701d4547e68e8f837fa4fe5122"
 #define MOPUB_HASH_ADAPTER_NATIVE   @"97ea9854b278483bb455c899002a3f79"
 
+CGSize const MFX_MOPUB_BANNER_SIZE = { .width = 320.0f, .height = 50.0f };
+CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
+
 #pragma mark Banner
 
 - (void)startMoPubSmallBanner {
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     
-    self.mMoPubBanner = [[MPAdView alloc] initWithAdUnitId:MOPUB_HASH_ADAPTER_BANNER
-                                                      size:MOPUB_BANNER_SIZE];
+    self.mMoPubBanner = [[MPAdView alloc] initWithAdUnitId:MOPUB_HASH_ADAPTER_BANNER];
     self.mMoPubBanner.delegate = self;
-    self.mMoPubBanner.frame = CGRectMake((w - MOPUB_BANNER_SIZE.width)/2, 140,
-                                         MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
-    [self.mMoPubBanner loadAd];
+    self.mMoPubBanner.frame = CGRectMake((w - MFX_MOPUB_BANNER_SIZE.width)/2, 140,
+                                         MFX_MOPUB_BANNER_SIZE.width, MFX_MOPUB_BANNER_SIZE.height);
+    [self.mMoPubBanner loadAdWithMaxAdSize:kMPPresetMaxAdSize50Height];
 }
 
 - (void)startMoPubLargeBanner {
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     
-    self.mMoPubBanner = [[MPAdView alloc] initWithAdUnitId:MOPUB_HASH_ADAPTER_BANNER
-                                                      size:MOPUB_MEDIUM_RECT_SIZE];
+    self.mMoPubBanner = [[MPAdView alloc] initWithAdUnitId:MOPUB_HASH_ADAPTER_BANNER];
     self.mMoPubBanner.delegate = self;
-    self.mMoPubBanner.frame = CGRectMake((w - MOPUB_MEDIUM_RECT_SIZE.width)/2, 140,
-                                         MOPUB_MEDIUM_RECT_SIZE.width,
-                                         MOPUB_MEDIUM_RECT_SIZE.height);
+    self.mMoPubBanner.frame = CGRectMake((w - MFX_MOPUB_MEDIUM_RECT_SIZE.width)/2, 140,
+                                         MFX_MOPUB_MEDIUM_RECT_SIZE.width,
+                                         MFX_MOPUB_MEDIUM_RECT_SIZE.height);
     
-    [self.mMoPubBanner loadAd];
+    [self.mMoPubBanner loadAdWithMaxAdSize:kMPPresetMaxAdSize250Height];
 }
 
 #pragma mark Interstitial
 
 - (void)startMoPubHtmlInterstitial {
-    self.mMoPubInterstitial = [MPInterstitialAdController
-                               interstitialAdControllerForAdUnitId:MOPUB_HASH_ADAPTER_INTER];
+    self.mMoPubInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:MOPUB_HASH_ADAPTER_INTER];
     self.mMoPubInterstitial.delegate = self;
     // Fetch the interstitial ad.
     [self.mMoPubInterstitial loadAd];
@@ -816,8 +816,11 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
     return self;
 }
 
-- (void)adViewDidLoadAd:(MPAdView *)view {
+- (void)adViewDidLoadAd:(MPAdView *)view adSize:(CGSize)adSize {
     NSLog(@"MoPub Banner: %s", __PRETTY_FUNCTION__);
+    CGRect adFrame = self.mMoPubBanner.frame;
+    adFrame.size = adSize;
+    self.mMoPubBanner.frame = adFrame;
     [self.view addSubview:self.mMoPubBanner];
 }
 
