@@ -11,7 +11,17 @@
 #import "MFAdNetworkExtras.h"
 #import <CoreLocation/CoreLocation.h>
 
-@import GoogleMobileAds;
+#if __has_include(<MoPub/MoPub.h>)
+#import <MoPub/MoPub.h>
+#elif __has_include(<MoPubSDKFramework/MoPub.h>)
+#import <MoPubSDKFramework/MoPub.h>
+#elif __has_include(<MoPub.h>)
+#import <MoPub.h>
+#endif
+
+#import <GoogleMobileAds/GoogleMobileAds.h>
+
+//@import GoogleMobileAds;
 
 @interface ViewController () <CLLocationManagerDelegate>
 
