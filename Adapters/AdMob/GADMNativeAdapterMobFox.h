@@ -12,7 +12,13 @@
 
 @interface GADMNativeAdapterMobFox : NSObject <GADMAdNetworkAdapter, MFXNativeAdDelegate, GADCustomEventNativeAd>
 
-@property (nonatomic, strong) MFXNativeAd* native;
+@property (nonatomic, strong) MFXNativeAd* mfNative;
 @property (nonatomic, weak) id <GADMAdNetworkConnector> connector;
+
+- (void)requestNativeAdWithParameter:(NSString *)serverParameter
+           request:(GADCustomEventRequest *)request
+           adTypes:(NSArray *)adTypes
+           options:(NSArray *)options
+rootViewController:(UIViewController *)rootViewController;
 
 @end

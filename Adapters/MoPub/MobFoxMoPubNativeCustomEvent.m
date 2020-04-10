@@ -15,6 +15,10 @@
 @implementation MobFoxMoPubNativeCustomEvent
 
 
+- (void)requestAdWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup
+{
+    [self requestAdWithCustomEventInfo:info];
+}
 
 - (void)requestAdWithCustomEventInfo:(NSDictionary *)info{
     
@@ -89,7 +93,7 @@
 }
 
 - (void)nativeAdLoadFailed:(MFXNativeAd *)native withError:(NSString *)error{
-    NSLog(@"MoPub natuve >> MobFox >> ad error: %@",[error description]);
+    NSLog(@"MoPub native >> MobFox >> ad error: %@",[error description]);
     
     NSString *domain = @"com.mobfox.mfxsdkcore.ErrorDomain";
     NSDictionary *userInfo = [[NSDictionary alloc]
@@ -107,6 +111,7 @@
 
 - (void)nativeAdClicked:(MFXNativeAd *)native{
     
+    NSLog(@"MoPub native >> MobFox >> clicked");
 }
 
 

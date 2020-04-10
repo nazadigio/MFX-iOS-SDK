@@ -9,19 +9,13 @@
 #import "ViewController.h"
 #import "MFXSDKCore/MFXSDKCore.h"
 #import "MFAdNetworkExtras.h"
+#import "Preferences.h"
+
+#import "MobFoxMoPubNativeAdView.h"
+
 #import <CoreLocation/CoreLocation.h>
 
-#if __has_include(<MoPub/MoPub.h>)
-#import <MoPub/MoPub.h>
-#elif __has_include(<MoPubSDKFramework/MoPub.h>)
-#import <MoPubSDKFramework/MoPub.h>
-#elif __has_include(<MoPub.h>)
-#import <MoPub.h>
-#endif
-
-#import <GoogleMobileAds/GoogleMobileAds.h>
-
-//@import GoogleMobileAds;
+@import GoogleMobileAds;
 
 @interface ViewController () <CLLocationManagerDelegate>
 
@@ -61,10 +55,12 @@
 @property(nonatomic, strong) GADRewardedAd *adMobRewarded;
 @property(nonatomic, strong) GADAdLoader *adMobAdLoader;
 @property(nonatomic, strong) GADUnifiedNativeAd *adMobNative;
+@property(nonatomic, strong) GADUnifiedNativeAdView *adMobNativeAdView;
 
 @property (strong, nonatomic) MPAdView *mMoPubBanner;
 @property (strong, nonatomic) MPInterstitialAdController *mMoPubInterstitial;
-@property (strong, nonatomic) MPNativeAd *nativeAd;
+@property (strong, nonatomic) MPNativeAd *mMoPubNativeAd;
+@property (strong, nonatomic) UIView* mMoPubNativeView;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
@@ -111,13 +107,13 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
             _btnBannerVideo.enabled =       YES;
             _btnInterstitial.enabled =      YES;
             _btnInterstitialVideo.enabled = YES;
-            _btnRewarded.enabled =          YES;
+            _btnRewarded.enabled =          NO;
             _btnNative.enabled =            YES;
             break;
         case ADAPTER_TYPE_MOPUB:
             _btnBannerSmall.enabled =       YES;
             _btnBannerLarge.enabled =       YES;
-            _btnBannerVideo.enabled =       NO;
+            _btnBannerVideo.enabled =       YES;
             _btnInterstitial.enabled =      YES;
             _btnInterstitialVideo.enabled = YES;
             _btnRewarded.enabled =          YES;
@@ -126,11 +122,11 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
         case ADAPTER_TYPE_ADMOB:
             _btnBannerSmall.enabled =       YES;
             _btnBannerLarge.enabled =       YES;
-            _btnBannerVideo.enabled =       NO;
+            _btnBannerVideo.enabled =       YES;
             _btnInterstitial.enabled =      YES;
             _btnInterstitialVideo.enabled = YES;
             _btnRewarded.enabled =          YES;
-            _btnNative.enabled =            NO;
+            _btnNative.enabled =            YES;
             break;
     }
 }
@@ -155,7 +151,69 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
     [self updateTabs];
 }
 
-- (IBAction)btnSettingsPressed:(id)sender {
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    [self updateTestSettings];
+}
+
+-(void)updateTestSettings
+{
+    Preferences *appPrefs = [Preferences sharedInstance];
+    
+    switch ([appPrefs getPrefIntByKey:kPref_HandleSubjectToGDPR])
+    {
+        case 0:
+            // NOP
+            break;
+        case 1:
+            [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"IABConsent_SubjectToGDPR"];
+            break;
+        case 2:
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"IABConsent_SubjectToGDPR"];
+            break;
+    }
+    
+    switch ([appPrefs getPrefIntByKey:kPref_HandleGDPRString])
+    {
+        case 0:
+            // NOP
+            break;
+        case 1:
+            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"IABConsent_ConsentString"];
+            break;
+        case 2:
+            [[NSUserDefaults standardUserDefaults] setObject:@"BOEFEAyOEFEAyAHABDENAI4AAAB9vABAASA" forKey:@"IABConsent_ConsentString"];
+            break;
+    }
+    
+    switch ([appPrefs getPrefIntByKey:kPref_HandleCOPPA])
+    {
+        case 0:
+            // NOP
+            break;
+        case 1:
+            [MobFoxSDK setCoppa:NO];
+            break;
+        case 2:
+            [MobFoxSDK setCoppa:YES];
+            break;
+    }
+    
+    switch ([appPrefs getPrefIntByKey:kPref_HandleCCPA])
+    {
+        case 0:
+            [[NSUserDefaults standardUserDefaults] setObject:@"1---" forKey:@"IABUSPrivacy_String"];
+            break;
+        case 1:
+            [[NSUserDefaults standardUserDefaults] setObject:@"1NNN" forKey:@"IABUSPrivacy_String"];
+            break;
+        case 2:
+            [[NSUserDefaults standardUserDefaults] setObject:@"1YNN" forKey:@"IABUSPrivacy_String"];
+            break;
+    }
+}
+
+/*
+- (IBAction)btnSettingsPressed:(UIButton *)sender {
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Settings"
                                                                          message:nil
                                                                   preferredStyle:UIAlertControllerStyleActionSheet];
@@ -166,10 +224,20 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
         [weakSelf presentCOPPASettings];
     }]];
     
+    NSString *currCCPA = [NSUserDefaults.standardUserDefaults objectForKey:@"IABUSPrivacy_String"];
+    NSString *title = ([currCCPA length]==0)?@"CCPA":[NSString stringWithFormat:@"CCPA (%@)",currCCPA];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:title
+                                                    style:UIAlertActionStyleDefault
+                                                  handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf presentCCPASettings];
+    }]];
+
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    
+    actionSheet.popoverPresentationController.sourceView = sender;
+    actionSheet.popoverPresentationController.sourceRect = sender.bounds;
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
+
 
 - (void)presentCOPPASettings {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"COPPA"
@@ -193,6 +261,32 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)presentCCPASettings {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"CCPA"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    __block UITextField *ccpaTextField = nil;
+
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        
+        textField.placeholder = @"Set CCPA (1/0)";
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        ccpaTextField = textField;
+    }];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Set" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        BOOL ccpa = ccpaTextField.text.boolValue;
+        [NSUserDefaults.standardUserDefaults setObject:ccpa?@"1YNN":@""
+                                                forKey:@"IABUSPrivacy_String"];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+*/
 
 #pragma mark -
 
@@ -236,10 +330,10 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
             [self startMobFoxVideoBanner];
             break;
         case ADAPTER_TYPE_MOPUB:
-            // NOP
+            [self startMoPubVideoBanner];
             break;
         case ADAPTER_TYPE_ADMOB:
-            // NOP
+            [self startAdMobVideoBanner];
             break;
     }
 }
@@ -268,7 +362,7 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
             [self startMobFoxInterstitialVideo:NO];
             break;
         case ADAPTER_TYPE_MOPUB:
-            // mytodo:
+            [self startMoPubVideoInterstitial];
             break;
         case ADAPTER_TYPE_ADMOB:
             [self startAdMobVideoInterstitial];
@@ -320,10 +414,14 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
     
     // Do any additional setup after loading the view, typically from a nib.
     [self clearMobFoxNatives];
+    [self clearMoPubNatives];
+    [self clearAdMobNatives];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
+    
+    [self updateTestSettings];
 }
 
 #pragma mark -
@@ -361,8 +459,20 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
         self.adMobAdLoader = nil;
     }
     
+    [self clearAdMobNatives];
+    if (self.adMobNative != nil)
+    {
+        self.adMobNative = nil;
+    }
+
     //------------------------------------
     
+    [self clearMoPubNatives];
+    if (self.mMoPubNativeAd != nil)
+    {
+        self.mMoPubNativeAd = nil;
+    }
+
     if (self.mMoPubBanner != nil) {
         [self.mMoPubBanner removeFromSuperview];
         self.mMoPubBanner = nil;
@@ -392,7 +502,7 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
                             withDelegate:self];
    
     if (_mBannerAd != nil) {
-        [_mBannerAd setBannerRefresh:0];
+        [_mBannerAd setBannerRefresh:30];
         [MobFoxSDK loadBanner:_mBannerAd];
     }
 }
@@ -408,6 +518,7 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
         CGFloat w = [UIScreen mainScreen].bounds.size.width;
         bannerCenterPoint = CGPointMake(w/2,240);
         
+        [_mBannerAd setBannerRefresh:30];
         [MobFoxSDK loadBanner:_mBannerAd];
     }
 }
@@ -463,6 +574,8 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
     [self clearAllAds];
     
     [self clearMobFoxNatives];
+    [self clearMoPubNatives];
+    [self clearAdMobNatives];
 
     _mNativeAd = [MobFoxSDK createNativeAd:HASH_NATIVE withDelegate:self];
     if (_mNativeAd != nil) {
@@ -488,6 +601,22 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
 
     [self UpdateNativeImage:_imgIcon withImage:nil];
     [self UpdateNativeImage:_imgMain withImage:nil];
+}
+
+-(void)clearMoPubNatives {
+    if (self.mMoPubNativeView!=nil)
+    {
+        [self.mMoPubNativeView removeFromSuperview];
+        self.mMoPubNativeView = nil;
+    }
+}
+
+-(void)clearAdMobNatives {
+    if (self.adMobNativeAdView!=nil)
+    {
+        [self.adMobNativeAdView removeFromSuperview];
+        self.adMobNativeAdView = nil;
+    }
 }
 
 - (void)UpdateNativeText:(UILabel *)lbl withValue:(NSString *)value {
@@ -538,10 +667,12 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
 
 #pragma mark - MoPub
 
-#define MOPUB_HASH_ADAPTER_BANNER   @"234dd5a1b1bf4a5f9ab50431f9615784"
-#define MOPUB_HASH_ADAPTER_INTER    @"a5277fa1fd57418b867cfaa949df3b4a"
-#define MOPUB_HASH_ADAPTER_REWARDED @"e3d4c8701d4547e68e8f837fa4fe5122"
-#define MOPUB_HASH_ADAPTER_NATIVE   @"97ea9854b278483bb455c899002a3f79"
+#define MOPUB_HASH_ADAPTER_BANNER       @"234dd5a1b1bf4a5f9ab50431f9615784" // Test iOS App / Banner Ad
+#define MOPUB_HASH_ADAPTER_VIDEO_BANNER @"62f37ebc4c0b40359a26af136d1e0866" // Test iOS App / Banner Video
+#define MOPUB_HASH_ADAPTER_INTER        @"6aee1c416d44412ca9978b4355902d3f" // Test iOS App / iOS Inter html
+#define MOPUB_HASH_ADAPTER_VIDEO_INTER  @"a5277fa1fd57418b867cfaa949df3b4a" // Test iOS App / Fullscreen Ad-demoApp
+#define MOPUB_HASH_ADAPTER_REWARDED     @"e3d4c8701d4547e68e8f837fa4fe5122" // Test iOS App / iOS Rewarded
+#define MOPUB_HASH_ADAPTER_NATIVE       @"ac0f139a2d9544fface76d06e27bc02a" //@"97ea9854b278483bb455c899002a3f79" // Test iOS App / Native Ad
 
 CGSize const MFX_MOPUB_BANNER_SIZE = { .width = 320.0f, .height = 50.0f };
 CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
@@ -570,10 +701,29 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
     [self.mMoPubBanner loadAdWithMaxAdSize:kMPPresetMaxAdSize250Height];
 }
 
+- (void)startMoPubVideoBanner {
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    
+    self.mMoPubBanner = [[MPAdView alloc] initWithAdUnitId:MOPUB_HASH_ADAPTER_VIDEO_BANNER];
+    self.mMoPubBanner.delegate = self;
+    self.mMoPubBanner.frame = CGRectMake((w - MFX_MOPUB_MEDIUM_RECT_SIZE.width)/2, 140,
+                                         MFX_MOPUB_MEDIUM_RECT_SIZE.width,
+                                         MFX_MOPUB_MEDIUM_RECT_SIZE.height);
+    
+    [self.mMoPubBanner loadAdWithMaxAdSize:kMPPresetMaxAdSize250Height];
+}
+
 #pragma mark Interstitial
 
 - (void)startMoPubHtmlInterstitial {
     self.mMoPubInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:MOPUB_HASH_ADAPTER_INTER];
+    self.mMoPubInterstitial.delegate = self;
+    // Fetch the interstitial ad.
+    [self.mMoPubInterstitial loadAd];
+}
+
+- (void)startMoPubVideoInterstitial {
+    self.mMoPubInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:MOPUB_HASH_ADAPTER_VIDEO_INTER];
     self.mMoPubInterstitial.delegate = self;
     // Fetch the interstitial ad.
     [self.mMoPubInterstitial loadAd];
@@ -589,15 +739,31 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
 #pragma mark Native
 
 - (void)startMoPubNative {
+    
     MPStaticNativeAdRendererSettings *settings = [[MPStaticNativeAdRendererSettings alloc] init];
-    settings.renderingViewClass = [self.view class];
+    settings.renderingViewClass = [MobFoxMoPubNativeAdView class];
+    
     MPNativeAdRendererConfiguration *config = [MPStaticNativeAdRenderer rendererConfigurationWithRendererSettings:settings];
     config.supportedCustomEvents = @[@"MobFoxMoPubNativeCustomEvent"];
+    
     //NSString *strHash = @"11a17b188668469fb0412708c3d16813";
-    NSString *strHash = @"97ea9854b278483bb455c899002a3f79";
+    //NSString *strHash = @"97ea9854b278483bb455c899002a3f79";
+    NSString *strHash = MOPUB_HASH_ADAPTER_NATIVE;
+    
     MPNativeAdRequest *adRequest = [MPNativeAdRequest requestWithAdUnitIdentifier:strHash rendererConfigurations:@[config]];
+    
     MPNativeAdRequestTargeting *targeting = [MPNativeAdRequestTargeting targeting];
-    targeting.desiredAssets = [NSSet setWithObjects:kAdTitleKey, kAdTextKey, kAdCTATextKey, kAdIconImageKey, kAdMainImageKey, kAdStarRatingKey, nil];
+    targeting.desiredAssets = [NSSet setWithObjects:kAdTitleKey,
+                               kAdTextKey,
+                               kAdCTATextKey,
+                               kAdIconImageKey,
+                               kAdMainImageKey,
+                               kAdStarRatingKey,
+                               kAdSponsoredByCompanyKey,
+                               //kAdPrivacyIconUIImageKey,
+                               //kAdPrivacyIconImageUrlKey,
+                               //kAdPrivacyIconClickUrlKey,
+                               nil];
     targeting.keywords = @"marital:single,age:27";
     targeting.location = [[CLLocation alloc] initWithLatitude:34.1212 longitude:32.1212];
     adRequest.targeting = targeting;
@@ -607,51 +773,53 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
         if (error) {
             NSLog(@"%s: error = %@", __PRETTY_FUNCTION__, [error description]); // Handle error.
         } else {
-            NSDictionary *propertiesDict = response.properties;
             __strong ViewController *strongSelf = weakself;
-            [strongSelf UpdateNativeText:strongSelf.lblTitle     withValue:[propertiesDict objectForKey:kAdTitleKey]];
-            [strongSelf UpdateNativeText:strongSelf.lblDesc      withValue:[propertiesDict objectForKey:kAdTextKey]];
-            [strongSelf UpdateNativeText:strongSelf.lblRating    withValue:[propertiesDict objectForKey:kAdStarRatingKey]];
-            [strongSelf UpdateNativeButton:strongSelf.btnCTA     withValue:[propertiesDict objectForKey:kAdCTATextKey]];
-            [strongSelf UpdateNativeImage:strongSelf.imgMain withImageURL:[propertiesDict objectForKey:kAdMainImageKey]];
             
-            strongSelf.nativeAd = response;
-            strongSelf.nativeAd.delegate = strongSelf;
-            UIView *nativeAdView = [response retrieveAdViewWithError:nil];
-            nativeAdView.frame = CGRectMake(0, 0, 400, 500);
-            [strongSelf.view addSubview:nativeAdView];
+            strongSelf.mMoPubNativeAd = response;
+            strongSelf.mMoPubNativeAd.delegate = strongSelf;
+            strongSelf.mMoPubNativeView = [response retrieveAdViewWithError:nil];
+            strongSelf.mMoPubNativeView.frame = CGRectMake(0, 0, strongSelf.viewNative.frame.size.width, strongSelf.viewNative.frame.size.height);
+            
+            [strongSelf.viewNative addSubview:strongSelf.mMoPubNativeView];
         }}];
 }
 
 #pragma mark - AdMob
 
-#define ADMOB_HASH_BANNER_HTML  @"ca-app-pub-6224828323195096/5240875564"
-#define ADMOB_HASH_INTER_HTML   @"ca-app-pub-6224828323195096/7876284361"
-#define ADMOB_HASH_INTER_VIDEO  @"ca-app-pub-6224828323195096/7876284361"
-#define ADMOB_HASH_INTER_REWARD @"ca-app-pub-6224828323195096/9409251358"
-#define ADMOB_HASH_NATIVE       @"ca-app-pub-6224828323195096/6049137964"
+#define ADMOB_HASH_BANNER_HTML  @"ca-app-pub-6224828323195096/7846687276"   // Test iOS - Test iOS Banner
+#define ADMOB_HASH_BANNER_VIDEO @"ca-app-pub-6224828323195096/7835888455"   // Test iOS - Test iOS Banner Video
+#define ADMOB_HASH_INTER_HTML   @"ca-app-pub-6224828323195096/7876284361"   // Test iOS - Test iOS Inter
+#define ADMOB_HASH_INTER_VIDEO  @"ca-app-pub-6224828323195096/4477534086"   // Test iOD - inter video
+#define ADMOB_HASH_INTER_REWARD @"ca-app-pub-6224828323195096/9409251358"   // Test iOS - rewarded_adunit_for_testing
+#define ADMOB_HASH_NATIVE       @"ca-app-pub-6224828323195096/9365553005"   // Test iOS - AdMob Native iOS
 
 #pragma mark Banner
 
 - (void)startAdMobSmallBanner {
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     bannerCenterPoint = CGPointMake(w/2,140);
-    [self startAdMobBannerWithSize:kGADAdSizeBanner];
+    [self startAdMobBannerWithSize:kGADAdSizeBanner andHash:ADMOB_HASH_BANNER_HTML];
 }
 
 - (void)startAdMobLargeBanner {
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     bannerCenterPoint = CGPointMake(w/2,240);
-    [self startAdMobBannerWithSize:kGADAdSizeMediumRectangle];
+    [self startAdMobBannerWithSize:kGADAdSizeMediumRectangle andHash:ADMOB_HASH_BANNER_HTML];
 }
 
-- (void)startAdMobBannerWithSize:(GADAdSize)size {
+- (void)startAdMobVideoBanner {
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    bannerCenterPoint = CGPointMake(w/2,240);
+    [self startAdMobBannerWithSize:kGADAdSizeMediumRectangle andHash:ADMOB_HASH_BANNER_VIDEO];
+}
+
+- (void)startAdMobBannerWithSize:(GADAdSize)size andHash:(NSString*)hashCode {
     self.adMobBannerView = [[GADBannerView alloc] initWithAdSize:size];
     
     [self.view addSubview:self.adMobBannerView];
     
     self.adMobBannerView.center = bannerCenterPoint;
-    self.adMobBannerView.adUnitID = ADMOB_HASH_BANNER_HTML;
+    self.adMobBannerView.adUnitID = hashCode;
     self.adMobBannerView.rootViewController = self;
     self.adMobBannerView.delegate = self;
     
@@ -722,7 +890,10 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
                                                        options:@[videoOptions]];
     self.adMobAdLoader.delegate = self;
     
-    [self.adMobAdLoader loadRequest:[GADRequest request]];
+    GADRequest* request = [GADRequest request];
+    request.testDevices = @[ @"a7976a724a3aba85f2dd656fd180c203" ];
+    
+    [self.adMobAdLoader loadRequest:request];
 }
 
 @end
@@ -901,7 +1072,7 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
     NSLog(@"MoPub Rewarded: %s", __PRETTY_FUNCTION__);
     
     MPRewardedVideoReward *reward = [[MPRewardedVideo availableRewardsForAdUnitID:adUnitID] firstObject];
-    NSLog(@"MoPub Rewarded: %s: reward = {%@, %@}", __PRETTY_FUNCTION__, reward.amount, reward.currencyType);
+    NSLog(@"MoPub Rewarded: ad loaded with reward = {%@, %@}", reward.amount, reward.currencyType);
     [MPRewardedVideo presentRewardedVideoAdForAdUnitID:adUnitID fromViewController:self withReward:reward customData:@""];
 }
 
@@ -995,7 +1166,7 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
  * @param reward The object that contains all the information regarding how much you should reward the user.
  */
 - (void)rewardedVideoAdShouldRewardForAdUnitID:(NSString *)adUnitID reward:(MPRewardedVideoReward *)reward {
-    NSLog(@"MoPub Rewarded: %s: reward = {%@, %@}", __PRETTY_FUNCTION__, reward.amount, reward.currencyType);
+    NSLog(@"MoPub Rewarded: %s: user should get reward = {%@, %@}", __PRETTY_FUNCTION__, reward.amount, reward.currencyType);
 }
 
 /**
@@ -1131,23 +1302,101 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
     NSLog(@"AdMob Native: %s: error = %@", __PRETTY_FUNCTION__, error);
 }
 
+
+
+
+
 - (void)adLoader:(GADAdLoader *)adLoader didReceiveUnifiedNativeAd:(GADUnifiedNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s: nativeAd.headline = %@", __PRETTY_FUNCTION__, nativeAd.headline);
     
-    [self UpdateNativeText:_lblTitle withValue:nativeAd.headline];
-    [self UpdateNativeText:_lblDesc withValue:nativeAd.body];
-    if (nativeAd.starRating == nil) {
-        [self UpdateNativeText:_lblRating withValue:@""];
-    } else {
-        [self UpdateNativeText:_lblRating withValue:[NSString stringWithFormat:@"%@", nativeAd.starRating]];
+    nativeAd.delegate=self;
+
+    // Create and place ad in view hierarchy.
+    if (_adMobNativeAdView==nil)
+    {
+        _adMobNativeAdView =
+            [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil].firstObject;
+        [_viewNative addSubview:_adMobNativeAdView];
     }
-    [self UpdateNativeText:_lblSponsored withValue:nativeAd.advertiser];
-    [self UpdateNativeButton:_btnCTA withValue:nativeAd.callToAction];
     
-    [self UpdateNativeImage:_imgIcon withImage:nativeAd.icon.image];
+    
+    // Associate the native ad view with the native ad object. This is
+    // required to make the ad clickable.
+    _adMobNativeAdView.nativeAd = nativeAd;
+
+    // Set the mediaContent on the GADMediaView to populate it with available
+    // video/image asset.
+    _adMobNativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
+
+    // Populate the native ad view with the native ad assets.
+    // The headline is guaranteed to be present in every native ad.
+    ((UILabel *)_adMobNativeAdView.headlineView).text = nativeAd.headline;
+
+    // These assets are not guaranteed to be present. Check that they are before
+    // showing or hiding them.
+    ((UILabel *)_adMobNativeAdView.bodyView).text = nativeAd.body;
+    _adMobNativeAdView.bodyView.hidden = nativeAd.body ? NO : YES;
+
+    [((UIButton *)_adMobNativeAdView.callToActionView)setTitle:nativeAd.callToAction
+                                                forState:UIControlStateNormal];
+    _adMobNativeAdView.callToActionView.hidden = nativeAd.callToAction ? NO : YES;
+
+    ((UIImageView *)_adMobNativeAdView.iconView).image = nativeAd.icon.image;
+    _adMobNativeAdView.iconView.hidden = nativeAd.icon ? NO : YES;
+
+    NSArray<GADNativeAdImage *> *images = nativeAd.images;
+    if ((images==nil) || ([images count]==0))
+    {
+        _adMobNativeAdView.imageView.hidden = YES;
+    } else {
+        ((UIImageView *)_adMobNativeAdView.imageView).image = [images firstObject].image;
+        _adMobNativeAdView.imageView.hidden = NO;
+    }
+
+    ((UILabel *)_adMobNativeAdView.starRatingView).text = [NSString stringWithFormat:@"%@",nativeAd.starRating];
+    _adMobNativeAdView.starRatingView.hidden = nativeAd.starRating ? NO : YES;
+
+    ((UILabel *)_adMobNativeAdView.storeView).text = nativeAd.store;
+    _adMobNativeAdView.storeView.hidden = nativeAd.store ? NO : YES;
+
+    ((UILabel *)_adMobNativeAdView.priceView).text = nativeAd.price;
+    _adMobNativeAdView.priceView.hidden = nativeAd.price ? NO : YES;
+
+    
+    ((UILabel *)_adMobNativeAdView.advertiserView).text = [nativeAd advertiser];
+    _adMobNativeAdView.advertiserView.hidden = [nativeAd advertiser] ? NO : YES;
+
+    // In order for the SDK to process touch events properly, user interaction
+    // should be disabled.
+    _adMobNativeAdView.callToActionView.userInteractionEnabled = NO;
+
+    
+    
+    
+    /*
+    
+    [self UpdateNativeText:(UILabel*)_adMobNativeAdView.headlineView
+                 withValue:nativeAd.headline];
+    [self UpdateNativeText:(UILabel*)_adMobNativeAdView.bodyView
+                 withValue:nativeAd.body];
+    if (nativeAd.starRating == nil) {
+        [self UpdateNativeText:(UILabel*)_adMobNativeAdView.starRatingView
+                     withValue:@""];
+    } else {
+        [self UpdateNativeText:(UILabel*)_adMobNativeAdView.starRatingView
+                     withValue:[NSString stringWithFormat:@"%@", nativeAd.starRating]];
+    }
+    [self UpdateNativeText:(UILabel*)_adMobNativeAdView.advertiserView
+                 withValue:nativeAd.advertiser];
+    [self UpdateNativeButton:(UIButton*)_adMobNativeAdView.callToActionView
+                   withValue:nativeAd.callToAction];
+    
+    [self UpdateNativeImage:(UIImageView*)_adMobNativeAdView.iconView
+                  withImage:nativeAd.icon.image];
     if ((nativeAd.images != nil) && (nativeAd.images.count > 0)) {
         [self UpdateNativeImage:_imgMain withImage:nativeAd.images.firstObject.image];
     }
+     */
 }
 
 /// The native ad was shown.

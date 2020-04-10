@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MFXSDKCore/MFXSDKCore.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface ViewController : UIViewController <MFXBannerAdDelegate, MFXInterstitialAdDelegate>
+#import "MFXSDKCore/MFXSDKCore.h"
+#if __has_include(<MoPub/MoPub.h>)
+#import <MoPub/MoPub.h>
+#elif __has_include(<MoPubSDKFramework/MoPub.h>)
+#import <MoPubSDKFramework/MoPub.h>
+#elif __has_include(<MoPub.h>)
+#import <MoPub.h>
+#endif
+
+@interface ViewController : UIViewController <MFXBannerAdDelegate, MFXInterstitialAdDelegate, MFXNativeAdDelegate>
 
 @end

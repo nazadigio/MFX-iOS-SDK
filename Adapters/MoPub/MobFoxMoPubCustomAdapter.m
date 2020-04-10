@@ -38,7 +38,8 @@
     if ([ad objectForKey:@"ctatext"]) [self.localProperties setObject:[ad objectForKey:@"ctatext"] forKey:kAdCTATextKey];
     if ([ad objectForKey:@"rating"]) [self.localProperties setObject:[ad objectForKey:@"rating"] forKey:kAdStarRatingKey];
     if ([ad objectForKey:@"url"]) [self.localProperties setObject:[ad objectForKey:@"url"] forKey:kDefaultActionURLKey];
-    
+    if ([ad objectForKey:@"sponsored"]) [self.localProperties setObject:[ad objectForKey:@"sponsored"] forKey:kAdSponsoredByCompanyKey];
+
     /*
      [self UpdateNativeText:_lblRating    withValue:[ad objectForKey:@"rating"]];
      [self UpdateNativeText:_lblSponsored withValue:[ad objectForKey:@"sponsored"]];
@@ -125,7 +126,7 @@
  */
 
 - (void)displayContentForURL:(NSURL *)URL rootViewController:(UIViewController *)controller {
-    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.localProperties objectForKey:kDefaultActionURLKey]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.localProperties objectForKey:kDefaultActionURLKey]]];
 }
 
 - (NSDictionary *)properties {

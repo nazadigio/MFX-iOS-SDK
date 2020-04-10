@@ -6,16 +6,11 @@
 //  Copyright © 2017 Matomy Media Group Ltd. All rights reserved.
 //
 
-
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <MFXSDKCore/MFXSDKCore.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-/*
-@interface MFMediatedNativeContentAd : NSObject <GADMediatedNativeContentAd>
+@interface MFMediatedNativeContentAd : NSObject <GADMediatedUnifiedNativeAd>
 
+- (instancetype)initWithMFNativeContentAd:(MFXNativeAd*)mfNative;
 
-    
-- (instancetype)initWithMFNativeContentAd:(MobFoxNativeData*)mobFoxNativeData;
-- (void)changeStataus;
 @end
- */

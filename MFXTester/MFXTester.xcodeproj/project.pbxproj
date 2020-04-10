@@ -13,6 +13,10 @@
 		283E15D122E995A10063D1B8 /* mobfox_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 283E15CB22E995A10063D1B8 /* mobfox_logo.png */; };
 		283E15D222E995A10063D1B8 /* mopub_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 283E15CC22E995A10063D1B8 /* mopub_logo.png */; };
 		283E15D322E995A10063D1B8 /* admob_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 283E15CD22E995A10063D1B8 /* admob_logo.png */; };
+		28DD86172440700200D2E5C5 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DD86162440700200D2E5C5 /* arrow_left.png */; };
+		28DD861D2440702700D2E5C5 /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DD86182440702700D2E5C5 /* UnifiedNativeAdView.xib */; };
+		28DD861E2440702700D2E5C5 /* SettingsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD861B2440702700D2E5C5 /* SettingsScreen.m */; };
+		28DD861F2440702700D2E5C5 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD861C2440702700D2E5C5 /* Preferences.m */; };
 		7D7BB5A76DC7257CAF65990D /* libPods-MFXTesterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5E407992AB7705D7E8A228 /* libPods-MFXTesterTests.a */; };
 		AC1DC547C1FD85510C113A52 /* libPods-MFXTester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B5DDBBBF688C2A6FB2D6B5 /* libPods-MFXTester.a */; };
 		B72795A92270815200FA24C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B72795A82270815200FA24C2 /* AppDelegate.m */; };
@@ -68,6 +72,12 @@
 		283E15CB22E995A10063D1B8 /* mobfox_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mobfox_logo.png; sourceTree = "<group>"; };
 		283E15CC22E995A10063D1B8 /* mopub_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mopub_logo.png; sourceTree = "<group>"; };
 		283E15CD22E995A10063D1B8 /* admob_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = admob_logo.png; sourceTree = "<group>"; };
+		28DD86162440700200D2E5C5 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
+		28DD86182440702700D2E5C5 /* UnifiedNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedNativeAdView.xib; sourceTree = "<group>"; };
+		28DD86192440702700D2E5C5 /* SettingsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScreen.h; sourceTree = "<group>"; };
+		28DD861A2440702700D2E5C5 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		28DD861B2440702700D2E5C5 /* SettingsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScreen.m; sourceTree = "<group>"; };
+		28DD861C2440702700D2E5C5 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		49C71CE437BAA554C25D482C /* Pods-MFXTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFXTester.debug.xcconfig"; path = "Target Support Files/Pods-MFXTester/Pods-MFXTester.debug.xcconfig"; sourceTree = "<group>"; };
 		A2C6D90470E8CC6EF583F095 /* Pods-MFXTesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFXTesterTests.debug.xcconfig"; path = "Target Support Files/Pods-MFXTesterTests/Pods-MFXTesterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB7A3E1F8D46ECC74F902F5B /* Pods-MFXTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFXTester.release.xcconfig"; path = "Target Support Files/Pods-MFXTester/Pods-MFXTester.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 		283E15C722E995900063D1B8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				28DD86162440700200D2E5C5 /* arrow_left.png */,
 				283E15C922E995A10063D1B8 /* admob_logo_grey.png */,
 				283E15CD22E995A10063D1B8 /* admob_logo.png */,
 				283E15CA22E995A10063D1B8 /* mobfox_logo_grey.png */,
@@ -167,6 +178,11 @@
 		B72795A62270815200FA24C2 /* MFXTester */ = {
 			isa = PBXGroup;
 			children = (
+				28DD861A2440702700D2E5C5 /* Preferences.h */,
+				28DD861C2440702700D2E5C5 /* Preferences.m */,
+				28DD86192440702700D2E5C5 /* SettingsScreen.h */,
+				28DD861B2440702700D2E5C5 /* SettingsScreen.m */,
+				28DD86182440702700D2E5C5 /* UnifiedNativeAdView.xib */,
 				B72795A72270815200FA24C2 /* AppDelegate.h */,
 				B72795A82270815200FA24C2 /* AppDelegate.m */,
 				B72795AA2270815200FA24C2 /* ViewController.h */,
@@ -311,8 +327,10 @@
 				283E15D322E995A10063D1B8 /* admob_logo.png in Resources */,
 				283E15CE22E995A10063D1B8 /* mopub_logo_grey.png in Resources */,
 				F5289D9D23AB999B001685D7 /* settings.png in Resources */,
+				28DD861D2440702700D2E5C5 /* UnifiedNativeAdView.xib in Resources */,
 				283E15D222E995A10063D1B8 /* mopub_logo.png in Resources */,
 				283E15CF22E995A10063D1B8 /* admob_logo_grey.png in Resources */,
+				28DD86172440700200D2E5C5 /* arrow_left.png in Resources */,
 				283E15D022E995A10063D1B8 /* mobfox_logo_grey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,9 +413,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DD861E2440702700D2E5C5 /* SettingsScreen.m in Sources */,
 				B72795AC2270815200FA24C2 /* ViewController.m in Sources */,
 				B72795B72270815300FA24C2 /* main.m in Sources */,
 				B72795A92270815200FA24C2 /* AppDelegate.m in Sources */,
+				28DD861F2440702700D2E5C5 /* Preferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

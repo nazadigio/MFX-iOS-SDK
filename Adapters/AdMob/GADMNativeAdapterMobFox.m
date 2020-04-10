@@ -7,25 +7,17 @@
 //
 
 #import "GADMNativeAdapterMobFox.h"
-
+#import "MFMediatedNativeContentAd.h"
 
 @implementation GADMNativeAdapterMobFox
 
 #pragma mark GADMAdNetworkAdapter Delegate
 
-- (void)sampleFunc {
-    
-    //MFMediatedNativeContentAd_ *mediaContent = [[MFMediatedNativeContentAd_ alloc] init];
-    //[mediaContent changeStatus];
-}
-
 + (NSString *)adapterVersion {
-    
    return [MobFoxSDK sdkVersion];
 }
 
 + (Class<GADAdNetworkExtras>)networkExtrasClass {
-    
     return nil;
 }
 
@@ -44,27 +36,13 @@
     
     NSLog(@"MobFox >> GADMNativeAdapterMobFox >> Got Native Ad Request");
 
-    self.native = [MobFoxSDK createNativeAd:serverParameter
+    self.mfNative = [MobFoxSDK createNativeAd:serverParameter
                                withDelegate:self];
     
-    if (self.native!=nil)
-    {
-        [MobFoxSDK loadNativeAd:self.native];
+    if (self.mfNative != nil) {
+        [MobFoxSDK loadNativeAd:self.mfNative];
     }
-    
-    //MFMediatedNativeContentAd_ *media = [[MFMediatedNativeContentAd_ alloc] initWithMFNativeContentAd:nil];
-    
 }
-
-/*
-- (void)getNativeAdWithAdTypes:(NSArray *)adTypes options:(NSArray *)options {
-    
-    NSString *invh = [[self.connector credentials] objectForKey:@"pubid"];
-    self.native = [[MobFoxNativeAd alloc] init:invh];
-    self.native.delegate = self;
-    [self.native loadAd];
-    
-}*/
 
 //===============================================================
 
@@ -89,26 +67,68 @@
 {
     NSLog(@"MobFox >> GADMNativeAdapterMobFox >> Native Ad Loaded");
         
-    //MFMediatedNativeContentAd_ *mediatedNativeContentAd = [[MFMediatedNativeContentAd_ alloc] initWithMFNativeContentAd:adData];
-    // MFMediatedNativeContentAd_ *mediatedNativeContentAd = [[MFMediatedNativeContentAd_ alloc] init];
-    // [self.delegate customEventNativeAd:self didReceiveMediatedNativeAd:mediatedNativeContentAd];
-    
-    
-    //MFMediatedNativeContentAd_ *media = [[MFMediatedNativeContentAd_ alloc] init];
-    //[media changeStatus];
-    
-    //MFMediatedNativeContentAd_ *media = [[MFMediatedNativeContentAd_ alloc] initWithMFNativeContentAd:nil];
-    
-    
-    
+    [MobFoxSDK loadNativeAdImages:native];
 }
 
 - (void)nativeAdImagesReady:(MFXNativeAd *)native
 {
+    NSLog(@"MobFox >> GADMNativeAdapterMobFox >> Native Ad Images Loaded");
+        
+    MFMediatedNativeContentAd *ad = [[MFMediatedNativeContentAd alloc] initWithMFNativeContentAd:native];
+        
+    //[MobFoxSDK registerNativeAdForInteraction:native onView:_viewNative];
+
+    [self.delegate customEventNativeAd:self didReceiveMediatedUnifiedNativeAd:ad];
 }
 
 - (void)nativeAdClicked:(MFXNativeAd *)native
 {
+    NSLog(@"MobFox >> GADMNativeAdapterMobFox >> Native Ad Clicked");
+}
+
+// Because the Sample SDK has click and impression tracking via
+// methods on its native ad object which the developer is required
+// to call, there's no need to pass it a reference to the UIView
+// being used to display the native ad. So there's no need to
+// implement mediatedNativeAd:didRenderInView:viewController:clickableAssetViews:nonClickableAssetViews
+// here. If your mediated network does need a reference to the view,
+// this method can be used to provide one. You can also access the
+// clickable and non-clickable views by asset key if the mediation
+// network needs this information.
+- (void)didRenderInView:(UIView *)view
+    clickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier, UIView *> *)clickableAssetViews
+ nonclickableAssetViews:(NSDictionary<GADUnifiedNativeAssetIdentifier, UIView *> *)nonclickableAssetViews
+         viewController:(UIViewController *)viewController {
+    // This method is called when the native ad view is rendered.
+    // Here you would pass the UIView back to the mediated
+    // network's SDK.
+    // Playing video using SampleNativeAd's playVideo method
+    //[_sampleAd playVideo];
+    
+    [MobFoxSDK registerNativeAdForInteraction:self.mfNative onView:view];
+}
+
+- (BOOL)handlesUserClicks {
+    return NO;
+}
+
+- (BOOL)handlesUserImpressions {
+    return NO;
+}
+
+- (void)getBannerWithSize:(GADAdSize)adSize {
+}
+
+
+- (void)getInterstitial {
+}
+
+
+- (void)presentInterstitialFromRootViewController:(UIViewController *)rootViewController {
+}
+
+
+- (void)stopBeingDelegate {
 }
 
 
@@ -166,40 +186,6 @@
 
 }
 */
-
-#pragma mark GADCustomEventNativeAd Delegate
-
-- (BOOL)handlesUserClicks {
-    
-    return YES;
-    
-}
-
-- (BOOL)handlesUserImpressions {
-    
-    return YES;
-
-}
-
-- (void)getBannerWithSize:(GADAdSize)adSize {
-    
-}
-
-
-- (void)getInterstitial {
-    
-}
-
-
-- (void)presentInterstitialFromRootViewController:(UIViewController *)rootViewController {
-    
-}
-
-
-- (void)stopBeingDelegate {
-    
-}
-
 
 @synthesize delegate;
 

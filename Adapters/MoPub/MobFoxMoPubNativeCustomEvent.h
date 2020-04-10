@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *adUnit;
 
 - (void)requestAdWithCustomEventInfo:(NSDictionary *)info;
+- (void)requestAdWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup;
 
 - (void)nativeAdLoadFailed:(MFXNativeAd *_Nullable)native withError:(NSString*)error;
 - (void)nativeAdLoaded:(MFXNativeAd *)native;
