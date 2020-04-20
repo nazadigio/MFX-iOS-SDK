@@ -23,12 +23,12 @@ PODS:
   - "GoogleUtilities/NSData+zlib (6.5.2)"
   - GoogleUtilities/Reachability (6.5.2):
     - GoogleUtilities/Logger
-  - MFXSDK (4.2.1)
-  - MFXSDK_AdMob (4.2.1):
+  - MFXSDK (4.2.2)
+  - MFXSDK_AdMob (4.2.2):
     - Google-Mobile-Ads-SDK (~> 7.48)
-    - MFXSDK (= 4.2.1)
-  - MFXSDK_MoPub (4.2.1):
-    - MFXSDK (= 4.2.1)
+    - MFXSDK (= 4.2.2)
+  - MFXSDK_MoPub (4.2.2):
+    - MFXSDK (= 4.2.2)
     - mopub-ios-sdk (~> 5.5)
   - mopub-ios-sdk (5.12.0):
     - mopub-ios-sdk/MoPubSDK (= 5.12.0)
@@ -77,9 +77,9 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: ec897018b9ab9b447e7aa4876e7f75aba13ba2de
   GoogleAppMeasurement: e49be3954045b17d046f271b9cc1ec052bad9702
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
-  MFXSDK: 767482f70ea0bfe06b2fef7a9287de457b54c234
-  MFXSDK_AdMob: 6b1d081c387d65b35f9eee527b78cf3e6d02d58e
-  MFXSDK_MoPub: 60db3c08b4dee5ffe542579e98cbc89add471e3b
+  MFXSDK: 7296cb375d97a3704cbd180468d2a963d06fb109
+  MFXSDK_AdMob: 3a82b6cd3ca31f3b183891f0f06f08b86cfe15e0
+  MFXSDK_MoPub: dd093732309619fbf428b7bd046ee1d5b79ea85d
   mopub-ios-sdk: bb61d5741ba16c6a78e5a54e37bc60ef8c9a80a8
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
