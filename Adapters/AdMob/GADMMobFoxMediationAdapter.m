@@ -24,7 +24,7 @@
 }
 
 /// Returns the adapter version.
-+ (GADVersionNumber)version {
++ (GADVersionNumber)adapterVersion {
     return [GADMMobFoxMediationAdapter GADVersionNumberFromString:[MobFoxSDK sdkVersion]];// TODO: Manage a separate version for the adapter?
 }
 
@@ -56,8 +56,9 @@
 
 - (void)loadRewardedAdForAdConfiguration:(GADMediationRewardedAdConfiguration *)adConfiguration
                        completionHandler:(GADMediationRewardedLoadCompletionHandler)completionHandler {
-    self.rewardedAd = [[GADMMobFoxRewardedAd alloc] init];
+    self.rewardedAd = [GADMMobFoxRewardedAd new];
     [self.rewardedAd loadRewardedAdForAdConfiguration:adConfiguration completionHandler:completionHandler];
 }
+
 
 @end

@@ -59,5 +59,5 @@ puts wd
   #s.ios.frameworks = 'CoreData', 'SystemConfiguration'
 
   s.dependency 'MFXSDK_Native', "#{s.version}"
-  s.dependency 'Google-Mobile-Ads-SDK', '~> 7.48'
+  s.dependency 'Google-Mobile-Ads-SDK', '~> 8.0'
 end

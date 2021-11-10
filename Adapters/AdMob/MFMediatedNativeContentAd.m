@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) MFXNativeAd *mfNative;
 
-@property(nonatomic, strong) GADUnifiedNativeAd *gadNative;
+@property(nonatomic, strong) GADNativeAd *gadNative;
 
 /// Headline.
 @property(nonatomic, copy, nullable) NSString *my_headline;
@@ -136,7 +136,7 @@
 - (void)didRecordImpression {
 }
 
-- (void)didRecordClickOnAssetWithName:(GADUnifiedNativeAssetIdentifier)assetName
+- (void)didRecordClickOnAssetWithName:(GADNativeAssetIdentifier)assetName
                                  view:(UIView *)view
                        viewController:(UIViewController *)viewController {
     [self.mfNative callToActionClicked];

@@ -40,12 +40,11 @@
     NSString *invh = [[self.connector credentials] objectForKey:@"pubid"];
     
     //The adapter should fail immediately if the adSize is not supported
-    if (GADAdSizeEqualToSize(adSize, kGADAdSizeBanner) ||
-        GADAdSizeEqualToSize(adSize, kGADAdSizeMediumRectangle) ||
-        GADAdSizeEqualToSize(adSize, kGADAdSizeFullBanner) ||
-        GADAdSizeEqualToSize(adSize, kGADAdSizeLeaderboard)) {
-        /**/
-        
+    if (GADAdSizeEqualToSize(adSize, GADAdSizeBanner) ||
+        GADAdSizeEqualToSize(adSize, GADAdSizeMediumRectangle) ||
+        GADAdSizeEqualToSize(adSize, GADAdSizeFullBanner) ||
+        GADAdSizeEqualToSize(adSize, GADAdSizeLeaderboard)) {
+
         self.banner = [MobFoxSDK createBanner:invh
                                         width:adSize.size.width
                                        height:adSize.size.height
@@ -62,7 +61,6 @@
         return;
     }
     
-    
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     if(GADAdSizeEqualToSize(adSize, kGADAdSizeSmartBannerPortrait) && UIInterfaceOrientationIsPortrait(interfaceOrientation)){
         float width = 320.0f;
@@ -71,7 +69,6 @@
             width = 728.0f;
             height = 90.0f;
         }
-        
         
         self.banner = [MobFoxSDK createBanner:invh
                                         width:width
@@ -96,8 +93,8 @@
     NSLog(@"MobFox >> GADAdapterMobFox: %@",errorDesc);
     
     NSDictionary *errorInfo = [NSDictionary dictionaryWithObjectsAndKeys:errorDesc, NSLocalizedDescriptionKey, nil];
-    NSError *error = [NSError errorWithDomain:kGADErrorDomain
-                                         code:kGADErrorMediationInvalidAdSize
+    NSError *error = [NSError errorWithDomain:GADErrorDomain
+                                         code:GADErrorMediationInvalidAdSize
                                      userInfo:errorInfo];
     [self.connector adapter:self didFailAd:error];
 }
@@ -314,7 +311,6 @@
     NSLog(@"MobFox >> GADMAdapterMobFox >> Interstitial Ad Clicked");
     [self.connector adapterWillPresentFullScreenModal:self];
     [self.connector adapterDidGetAdClick:self];
-    [self.connector adapterWillLeaveApplication:self];
 }
 
 - (void)interstitialAdFinished:(MFXInterstitialAd *)interstitial

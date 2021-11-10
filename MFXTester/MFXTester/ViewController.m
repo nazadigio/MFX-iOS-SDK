@@ -51,11 +51,11 @@
 @property (strong, nonatomic) MFXNativeAd *mNativeAd;
 
 @property(nonatomic, strong) GADBannerView *adMobBannerView;
-@property(nonatomic, strong) GADInterstitial *adMobInterstitial;
+@property(nonatomic, strong) GADInterstitialAd *adMobInterstitial;
 @property(nonatomic, strong) GADRewardedAd *adMobRewarded;
 @property(nonatomic, strong) GADAdLoader *adMobAdLoader;
-@property(nonatomic, strong) GADUnifiedNativeAd *adMobNative;
-@property(nonatomic, strong) GADUnifiedNativeAdView *adMobNativeAdView;
+@property(nonatomic, strong) GADNativeAd *adMobNative;
+@property(nonatomic, strong) GADNativeAdView *adMobNativeAdView;
 
 @property (strong, nonatomic) MPAdView *mMoPubBanner;
 @property (strong, nonatomic) MPInterstitialAdController *mMoPubInterstitial;
@@ -72,7 +72,7 @@
 @interface ViewController(MoPubDelegates) <MPAdViewDelegate, MPInterstitialAdControllerDelegate, MPRewardedVideoDelegate, MPNativeAdDelegate>
 @end
 
-@interface ViewController(AdMobDelegates) <GADBannerViewDelegate, GADInterstitialDelegate, GADRewardedAdDelegate, GADUnifiedNativeAdLoaderDelegate>
+@interface ViewController(AdMobDelegates) <GADBannerViewDelegate, GADFullScreenContentDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate>
 @end
 
 @implementation ViewController
@@ -406,6 +406,8 @@ NSInteger mAdapterType = ADAPTER_TYPE_MOBFOX;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ GADSimulatorID ];
+    
     _locationManager = [CLLocationManager new];
     _locationManager.delegate = self;
     [_locationManager requestWhenInUseAuthorization];
@@ -798,19 +800,19 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
 - (void)startAdMobSmallBanner {
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     bannerCenterPoint = CGPointMake(w/2,140);
-    [self startAdMobBannerWithSize:kGADAdSizeBanner andHash:ADMOB_HASH_BANNER_HTML];
+    [self startAdMobBannerWithSize:GADAdSizeBanner andHash:ADMOB_HASH_BANNER_HTML];
 }
 
 - (void)startAdMobLargeBanner {
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     bannerCenterPoint = CGPointMake(w/2,240);
-    [self startAdMobBannerWithSize:kGADAdSizeMediumRectangle andHash:ADMOB_HASH_BANNER_HTML];
+    [self startAdMobBannerWithSize:GADAdSizeMediumRectangle andHash:ADMOB_HASH_BANNER_HTML];
 }
 
 - (void)startAdMobVideoBanner {
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     bannerCenterPoint = CGPointMake(w/2,240);
-    [self startAdMobBannerWithSize:kGADAdSizeMediumRectangle andHash:ADMOB_HASH_BANNER_VIDEO];
+    [self startAdMobBannerWithSize:GADAdSizeMediumRectangle andHash:ADMOB_HASH_BANNER_VIDEO];
 }
 
 - (void)startAdMobBannerWithSize:(GADAdSize)size andHash:(NSString*)hashCode {
@@ -847,53 +849,68 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
 #pragma mark Interstitial
 
 - (void)startAdMobHtmlInterstitial {
-    self.adMobInterstitial = [[GADInterstitial alloc] initWithAdUnitID:ADMOB_HASH_INTER_HTML];
-    self.adMobInterstitial.delegate = self;
-    [self.adMobInterstitial loadRequest:[GADRequest request]];
+    __weak ViewController *weakSelf = self;
+    [GADInterstitialAd loadWithAdUnitID:ADMOB_HASH_INTER_HTML
+                                request:[GADRequest request]
+                      completionHandler:^(GADInterstitialAd * _Nullable interstitialAd, NSError * _Nullable error) {
+        __strong ViewController *strongSelf = weakSelf;
+        
+        if (error || !strongSelf) {
+            return;
+        }
+        
+        strongSelf.adMobInterstitial = interstitialAd;
+        strongSelf.adMobInterstitial.fullScreenContentDelegate = strongSelf;
+    }];
 }
 
 - (void)startAdMobVideoInterstitial {
-    self.adMobInterstitial = [[GADInterstitial alloc] initWithAdUnitID:ADMOB_HASH_INTER_VIDEO];
-    self.adMobInterstitial.delegate = self;
-    [self.adMobInterstitial loadRequest:[GADRequest request]];
+    __weak ViewController *weakSelf = self;
+    [GADInterstitialAd loadWithAdUnitID:ADMOB_HASH_INTER_VIDEO
+                                request:[GADRequest request]
+                      completionHandler:^(GADInterstitialAd * _Nullable interstitialAd, NSError * _Nullable error) {
+        __strong ViewController *strongSelf = weakSelf;
+        
+        if (error || !strongSelf) {
+            return;
+        }
+        
+        strongSelf.adMobInterstitial = interstitialAd;
+        strongSelf.adMobInterstitial.fullScreenContentDelegate = strongSelf;
+    }];
 }
 
 - (void)startAdMobRewarded {
-    self.adMobRewarded = [[GADRewardedAd alloc] initWithAdUnitID:ADMOB_HASH_INTER_REWARD];
-    
-    GADRequest *request = [GADRequest request];
-    
     __weak ViewController *weakSelf = self;
-    [self.adMobRewarded loadRequest:request completionHandler:^(GADRequestError * _Nullable error) {
-        NSLog(@"%s loadRequest completed", __PRETTY_FUNCTION__);
+    [GADRewardedAd loadWithAdUnitID:ADMOB_HASH_INTER_REWARD
+                            request:[GADRequest request]
+                  completionHandler:^(GADRewardedAd * _Nullable rewardedAd, NSError * _Nullable error) {
         __strong ViewController *strongSelf = weakSelf;
-        if (strongSelf != nil) {
-            if (error) {
-                NSLog(@"%s loadRequest: error = %@", __PRETTY_FUNCTION__, error);
-            } else {
-                NSLog(@"%s loadRequest: no error", __PRETTY_FUNCTION__);
-                [strongSelf.adMobRewarded presentFromRootViewController:strongSelf delegate:strongSelf];
-            }
+        
+        if (error || !strongSelf) {
+            return;
         }
+        
+        strongSelf.adMobRewarded = rewardedAd;
+        [strongSelf.adMobRewarded presentFromRootViewController:strongSelf userDidEarnRewardHandler:^{
+            NSLog(@"AdMob Rewarded: %s: reward = {%@, %@}", __PRETTY_FUNCTION__, rewardedAd.adReward.type, rewardedAd.adReward.amount.stringValue);
+        }];
     }];
 }
 
 #pragma mark Native
 
 - (void)startAdMobNative {
-    GADVideoOptions *videoOptions = [[GADVideoOptions alloc] init];
+    GADVideoOptions *videoOptions = [GADVideoOptions new];
     videoOptions.startMuted = YES;
     
     self.adMobAdLoader = [[GADAdLoader alloc] initWithAdUnitID:ADMOB_HASH_NATIVE
                                             rootViewController:self
-                                                       adTypes:@[kGADAdLoaderAdTypeUnifiedNative]
+                                                       adTypes:@[GADAdLoaderAdTypeNative]
                                                        options:@[videoOptions]];
     self.adMobAdLoader.delegate = self;
     
-    GADRequest* request = [GADRequest request];
-    request.testDevices = @[ @"a7976a724a3aba85f2dd656fd180c203" ];
-    
-    [self.adMobAdLoader loadRequest:request];
+    [self.adMobAdLoader loadRequest:[GADRequest request]];
 }
 
 @end
@@ -1200,95 +1217,60 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
 
 @implementation ViewController(AdMobDelegates)
 
-/// Tells the delegate an ad request loaded an ad.
-- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+- (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
     NSLog(@"AdMob Banner: %s", __PRETTY_FUNCTION__);
 }
 
-/// Tells the delegate an ad request failed.
-- (void)adView:(GADBannerView *)adView didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)bannerView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
     NSLog(@"AdMob Banner: %s: error = %@", __PRETTY_FUNCTION__, [error localizedDescription]);
 }
 
 /// Tells the delegate that a full-screen view will be presented in response
 /// to the user clicking on an ad.
-- (void)adViewWillPresentScreen:(GADBannerView *)adView {
+- (void)bannerViewWillPresentScreen:(GADBannerView *)bannerView {
     NSLog(@"AdMob Banner: %s", __PRETTY_FUNCTION__);
 }
 
 /// Tells the delegate that the full-screen view will be dismissed.
-- (void)adViewWillDismissScreen:(GADBannerView *)adView {
+- (void)bannerViewWillDismissScreen:(GADBannerView *)bannerView {
     NSLog(@"AdMob Banner: %s", __PRETTY_FUNCTION__);
 }
 
 /// Tells the delegate that the full-screen view has been dismissed.
-- (void)adViewDidDismissScreen:(GADBannerView *)adView {
-    NSLog(@"AdMob Banner: %s", __PRETTY_FUNCTION__);
-}
-
-/// Tells the delegate that a user click will open another app (such as
-/// the App Store), backgrounding the current app.
-- (void)adViewWillLeaveApplication:(GADBannerView *)adView {
+- (void)bannerViewDidDismissScreen:(GADBannerView *)bannerView {
     NSLog(@"AdMob Banner: %s", __PRETTY_FUNCTION__);
 }
 
 #pragma mark -
 
-/// Tells the delegate an ad request succeeded.
-- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
+- (void)adDidRecordImpression:(nonnull id<GADFullScreenPresentingAd>)ad {
     NSLog(@"AdMob Inter: %s", __PRETTY_FUNCTION__);
-    
-    if (self.adMobInterstitial.isReady) {
-        [self.adMobInterstitial presentFromRootViewController:self];
-    }
 }
 
-/// Tells the delegate an ad request failed.
-- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
+/// Tells the delegate that a click has been recorded for the ad.
+- (void)adDidRecordClick:(nonnull id<GADFullScreenPresentingAd>)ad {
+    NSLog(@"AdMob Inter: %s", __PRETTY_FUNCTION__);
+}
+
+/// Tells the delegate that the ad failed to present full screen content.
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
+didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
     NSLog(@"AdMob Inter: %s: error = %@", __PRETTY_FUNCTION__, [error localizedDescription]);
 }
 
-/// Tells the delegate that an interstitial will be presented.
-- (void)interstitialWillPresentScreen:(GADInterstitial *)ad {
+/// Tells the delegate that the ad presented full screen content.
+- (void)adDidPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
     NSLog(@"AdMob Inter: %s", __PRETTY_FUNCTION__);
 }
 
-/// Tells the delegate the interstitial is to be animated off the screen.
-- (void)interstitialWillDismissScreen:(GADInterstitial *)ad {
+/// Tells the delegate that the ad will dismiss full screen content.
+- (void)adWillDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
     NSLog(@"AdMob Inter: %s", __PRETTY_FUNCTION__);
 }
 
-/// Tells the delegate the interstitial had been animated off the screen.
-- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+/// Tells the delegate that the ad dismissed full screen content.
+- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
     NSLog(@"AdMob Inter: %s", __PRETTY_FUNCTION__);
-}
-
-/// Tells the delegate that a user click will open another app
-/// (such as the App Store), backgrounding the current app.
-- (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
-    NSLog(@"AdMob Inter: %s", __PRETTY_FUNCTION__);
-}
-
-#pragma mark -
-
-/// Tells the delegate that the user earned a reward.
-- (void)rewardedAd:(nonnull GADRewardedAd *)rewardedAd userDidEarnReward:(nonnull GADAdReward *)reward {
-    NSLog(@"AdMob Rewarded: %s: reward = {%@, %@}", __PRETTY_FUNCTION__, reward.type, reward.amount.stringValue);
-}
-
-/// Tells the delegate that the rewarded ad failed to present.
-- (void)rewardedAd:(nonnull GADRewardedAd *)rewardedAd didFailToPresentWithError:(nonnull NSError *)error {
-    NSLog(@"AdMob Rewarded: %s: error = %@", __PRETTY_FUNCTION__, error);
-}
-
-/// Tells the delegate that the rewarded ad was presented.
-- (void)rewardedAdDidPresent:(nonnull GADRewardedAd *)rewardedAd {
-    NSLog(@"AdMob Rewarded: %s", __PRETTY_FUNCTION__);
-}
-
-/// Tells the delegate that the rewarded ad was dismissed.
-- (void)rewardedAdDidDismiss:(nonnull GADRewardedAd *)rewardedAd {
-    NSLog(@"AdMob Rewarded: %s", __PRETTY_FUNCTION__);
 }
 
 #pragma mark -
@@ -1298,27 +1280,23 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
     NSLog(@"AdMob Native: %s", __PRETTY_FUNCTION__);
 }
 
-- (void)adLoader:(nonnull GADAdLoader *)adLoader didFailToReceiveAdWithError:(nonnull GADRequestError *)error {
+- (void)adLoader:(nonnull GADAdLoader *)adLoader didFailToReceiveAdWithError:(nonnull NSError *)error {
     NSLog(@"AdMob Native: %s: error = %@", __PRETTY_FUNCTION__, error);
 }
 
-
-
-
-
-- (void)adLoader:(GADAdLoader *)adLoader didReceiveUnifiedNativeAd:(GADUnifiedNativeAd *)nativeAd {
+- (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s: nativeAd.headline = %@", __PRETTY_FUNCTION__, nativeAd.headline);
     
-    nativeAd.delegate=self;
+    nativeAd.delegate = self;
 
     // Create and place ad in view hierarchy.
-    if (_adMobNativeAdView==nil)
+    if (_adMobNativeAdView == nil)
     {
-        _adMobNativeAdView =
-            [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil].firstObject;
+        _adMobNativeAdView = [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView"
+                                                           owner:nil
+                                                         options:nil].firstObject;
         [_viewNative addSubview:_adMobNativeAdView];
     }
-    
     
     // Associate the native ad view with the native ad object. This is
     // required to make the ad clickable.
@@ -1369,64 +1347,37 @@ CGSize const MFX_MOPUB_MEDIUM_RECT_SIZE = { .width = 300.0f, .height = 250.0f };
     // In order for the SDK to process touch events properly, user interaction
     // should be disabled.
     _adMobNativeAdView.callToActionView.userInteractionEnabled = NO;
-
-    
-    
-    
-    /*
-    
-    [self UpdateNativeText:(UILabel*)_adMobNativeAdView.headlineView
-                 withValue:nativeAd.headline];
-    [self UpdateNativeText:(UILabel*)_adMobNativeAdView.bodyView
-                 withValue:nativeAd.body];
-    if (nativeAd.starRating == nil) {
-        [self UpdateNativeText:(UILabel*)_adMobNativeAdView.starRatingView
-                     withValue:@""];
-    } else {
-        [self UpdateNativeText:(UILabel*)_adMobNativeAdView.starRatingView
-                     withValue:[NSString stringWithFormat:@"%@", nativeAd.starRating]];
-    }
-    [self UpdateNativeText:(UILabel*)_adMobNativeAdView.advertiserView
-                 withValue:nativeAd.advertiser];
-    [self UpdateNativeButton:(UIButton*)_adMobNativeAdView.callToActionView
-                   withValue:nativeAd.callToAction];
-    
-    [self UpdateNativeImage:(UIImageView*)_adMobNativeAdView.iconView
-                  withImage:nativeAd.icon.image];
-    if ((nativeAd.images != nil) && (nativeAd.images.count > 0)) {
-        [self UpdateNativeImage:_imgMain withImage:nativeAd.images.firstObject.image];
-    }
-     */
 }
 
 /// The native ad was shown.
-- (void)nativeAdDidRecordImpression:(GADUnifiedNativeAd *)nativeAd {
+
+- (void)nativeAdDidRecordImpression:(GADNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s", __PRETTY_FUNCTION__);
 }
 
 /// The native ad was clicked on.
-- (void)nativeAdDidRecordClick:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidRecordClick:(GADNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s", __PRETTY_FUNCTION__);
 }
 
 /// The native ad will present a full screen view.
-- (void)nativeAdWillPresentScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillPresentScreen:(GADNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s", __PRETTY_FUNCTION__);
 }
 
 /// The native ad will dismiss a full screen view.
-- (void)nativeAdWillDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillDismissScreen:(GADNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s", __PRETTY_FUNCTION__);
 }
 
 /// The native ad did dismiss a full screen view.
-- (void)nativeAdDidDismissScreen:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdDidDismissScreen:(GADNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s", __PRETTY_FUNCTION__);
 }
 
 /// The native ad will cause the application to become inactive and
 /// open a new application.
-- (void)nativeAdWillLeaveApplication:(GADUnifiedNativeAd *)nativeAd {
+- (void)nativeAdWillLeaveApplication:(GADNativeAd *)nativeAd {
     NSLog(@"AdMob Native: %s", __PRETTY_FUNCTION__);
 }
 

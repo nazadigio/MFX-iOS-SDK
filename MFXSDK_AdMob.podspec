@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MFXSDK_AdMob"
-  s.version          = "4.2.2"
+  s.version          = "4.2.3"
   s.summary          = "MobFox's iOS AdMob Adapter"
 
 wd = "Working Dir: %s" % [Dir.pwd]
@@ -59,5 +59,5 @@ puts wd
   #s.ios.frameworks = 'CoreData', 'SystemConfiguration'
 
   s.dependency 'MFXSDK', "#{s.version}"
-  s.dependency 'Google-Mobile-Ads-SDK', '~> 7.48'
+  s.dependency 'Google-Mobile-Ads-SDK', '~> 8.0'
 end
