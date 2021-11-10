@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MFXSDK_AdMob"
-  s.version          = "4.2.3"
+  s.version          = "4.2.2"
   s.summary          = "MobFox's iOS AdMob Adapter"
 
 wd = "Working Dir: %s" % [Dir.pwd]
@@ -49,9 +49,9 @@ puts wd
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
   # }
 
-  s.frameworks = 'AdSupport'
+#  s.frameworks = 'AdSupport'
 
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
+#  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
 
   #s.public_header_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h', 'Adapters/AdMob/*.h'
   #s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'

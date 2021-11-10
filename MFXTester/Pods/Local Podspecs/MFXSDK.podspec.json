@@ -24,10 +24,7 @@
   "ios": {
     "libraries": "z"
   },
-  "frameworks": [
-    "MFXSDKCore",
-    "AdSupport"
-  ],
+  "frameworks": "AdSupport",
   "xcconfig": {
     "FRAMEWORK_SEARCH_PATHS": "MFXSDKCore/**"
   },

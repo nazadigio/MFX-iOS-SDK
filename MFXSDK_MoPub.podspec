@@ -49,9 +49,9 @@ puts wd
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
   # }
 
-  s.frameworks = 'AdSupport'
+#  s.frameworks = 'AdSupport'
 
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => 'MFXSDKCore/**'  }
+#  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => 'MFXSDKCore/**'  }
 
   #s.public_header_files = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework/Headers/*.h', 'Adapters/MoPub/*.h'
   #s.vendored_frameworks = 'MFXSDKCore.embeddedframework/MFXSDKCore.framework'
