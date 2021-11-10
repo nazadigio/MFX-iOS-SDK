@@ -59,7 +59,7 @@ puts wd
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
   # }
 
-  s.frameworks = 'MFXSDKCore' ,'AdSupport'
+  s.frameworks = 'AdSupport'
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' =>  'MFXSDKCore/**'  }
 
